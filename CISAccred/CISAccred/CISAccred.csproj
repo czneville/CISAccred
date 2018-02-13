@@ -67,7 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="api\phpversion.php" />
+    <Content Include="api\phpversion.php">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="api\phpquery.php" />
+    <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
