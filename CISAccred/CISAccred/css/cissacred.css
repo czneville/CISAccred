@@ -6,6 +6,11 @@
     color: white;
 }
 
+table
+{
+    border: double;
+    text-align: center;
+}
 
 div
 {
