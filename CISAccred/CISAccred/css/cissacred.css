@@ -1,0 +1,14 @@
+﻿body 
+{
+    background-color: crimson;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+div
+{
+    background-color: white;
+    text-align: left;
+    color: crimson;
+}
