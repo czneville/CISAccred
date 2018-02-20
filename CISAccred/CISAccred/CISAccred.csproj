@@ -74,6 +74,11 @@
     </Content>
     <Content Include="api\phpquery.php" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
+    <Content Include="pages\admin\adminLogin.html" />
+    <Content Include="pages\admin\users\addUser.html" />
+    <Content Include="pages\admin\users\deleteUser.html" />
+    <Content Include="pages\admin\users\editUser.html" />
+    <Content Include="login.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />
     <Content Include="scripts\angular-route.min.js" />
@@ -89,21 +94,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Index.html" />
+    <Content Include="index.html" />
     <Content Include="pages\students\deleteStudent.html" />
     <Content Include="pages\students\editStudent.html" />
     <Content Include="pages\students\addStudent.html" />
     <Content Include="pages\home.html" />
-    <Content Include="pages\reports1.html" />
-    <Content Include="pages\reports2.html" />
-    <Content Include="pages\students.html" />
+    <Content Include="pages\reports\reports1.html" />
+    <Content Include="pages\reports\reports2.html" />
+    <Content Include="pages\students\students.html" />
     <Content Include="scripts\routing-scripts.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="pages\admin\abet\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
