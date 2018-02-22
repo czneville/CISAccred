@@ -1,5 +1,5 @@
 ﻿<?php
-	$db_conn = oci_connect("nev6011","nev6011", "//orion.calu.edu/orcl");
+	$db_conn = oci_connect("cisaccred","cisaccred", "//orion.calu.edu/orcl");
 	if (!$db_conn) {
 		$m = oci_error();
 		echo $m['message'], "\n";
