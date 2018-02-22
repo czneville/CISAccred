@@ -75,6 +75,7 @@
     </Content>
     <Content Include="api\phpquery.php" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="api\verifyLogin.php" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\admin\adminLogin.html" />
     <Content Include="pages\admin\users\addUser.html" />
