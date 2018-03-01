@@ -14,11 +14,17 @@
 </head>
 <body ng-app="">
 
-    <form id="login">
-        Username: <input type="text" ng-model="firstname">
-        Password: <input type="password" ng-model="password">
+    <h1>CIS Accred Login Page</h1>
+
+    <form id="login" action="/api/useless.php">
+        Username:<br>
+        <input type="text" ng-model="username">
+        <br><br>
+        Password:<br>
+        <input type="password" ng-model="password">
+        <br>
+        <input type="submit" value="Login">
     </form>
-    <h1>You entered: {{firstname}} and {{password}}</h1>
 
 </body>
 </html>
