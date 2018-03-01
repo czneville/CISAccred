@@ -1,4 +1,29 @@
-﻿<?php
+﻿<!DOCTYPE html>
+
+<script src="scripts/angular.js"></script>
+<script src="scripts/angular-route.min.js"></script>
+<script src="scripts/routing-scripts.js"></script>
+
+
+<link href="css/cissacred.css" rel="stylesheet" />
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body ng-app="">
+
+    <form id="login">
+        Username: <input type="text" ng-model="firstname">
+        Password: <input type="password" ng-model="password">
+    </form>
+    <h1>You entered: {{firstname}} and {{password}}</h1>
+
+</body>
+</html>
+
+<?php
 	$username = $_GET['username'];
 	$password = $_GET['password'];
 	$db_conn = oci_connect("cisaccred","cisaccred", "//orion.calu.edu/orcl");
