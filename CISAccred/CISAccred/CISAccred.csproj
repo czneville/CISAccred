@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="api\useless.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="css\cissacred.css" />
     <Content Include="packages.config" />
@@ -81,7 +82,7 @@
     <Content Include="pages\admin\users\addUser.html" />
     <Content Include="pages\admin\users\deleteUser.html" />
     <Content Include="pages\admin\users\editUser.html" />
-    <Content Include="login.html" />
+    <Content Include="angularTest.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />
     <Content Include="scripts\angular-route.min.js" />
