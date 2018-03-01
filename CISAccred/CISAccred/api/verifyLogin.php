@@ -1,6 +1,6 @@
 ﻿<?php
-	$username = $_GET['username'];
-	$password = $_GET['password'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 	$db_conn = oci_connect("cisaccred","cisaccred", "//orion.calu.edu/orcl");
 	if (!$db_conn) {
     echo('{}');
@@ -18,12 +18,14 @@
   $json_result["p_id"] = $p_id;
   $json_result["session_key"] = $session_key;
   
-  /*
   
-  TODO: ADD SESSION KEY TO DB
-  
-  */
-
+  $save_session_key = 'INSERT INTO CIS_SESSION VALUES('.$p_id.', \''.$session_key.'\', TO_DATE(\''.(new DateTime())->format('Y-m-d H-i-s').'\', \'YYYY-MM-DD hh24:mi:ss\'))';
+  $store_session = oci_parse($db_conn, $save_session_key);
+  $r=oci_execute($store_session);
+  if(!$r){
+    echo("{}");
+    exit();
+  }
   echo(json_encode($json_result));
 	oci_close($db_conn);
 ?>
