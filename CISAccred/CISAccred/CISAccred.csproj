@@ -74,10 +74,11 @@
     <Content Include="api\phpversion.php">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="api\phpquery.php" />
+    <Content Include="api\oracleQuery.php" />
     <Content Include="api\verifyLogin.php">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="api\verifySessionKey.php" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\admin\adminLogin.html" />
     <Content Include="pages\admin\users\addUser.html" />
