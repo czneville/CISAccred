@@ -1,20 +1,64 @@
-﻿body 
-{
-    background-color: crimson;
+﻿body#main{
+    background-color: #e03227;
+}
+
+div#logo{
+    font-size: 32px;
+    font-family: Futura;
+}
+
+@font-face {
+    font-family: Futura;
+    src: url(../Content/Futura.otf);
+}
+
+nav#main-nav{
+    background-color: #e3703d;
+}
+
+#main-nav > div > ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#main-nav > div > ul > li{
+    float: left;
+    cursor: pointer;
+    padding-left:10px;
+    padding-right:10px;
+    height: 50px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
     color: white;
 }
 
-table
-{
-    border: double;
-    text-align: center;
+#main-nav > div > ul > li:hover, #main-nav > div > ul > li:active{
+    background-color: #e68154;
 }
 
-div
-{
-    background-color: white;
-    text-align: center;
-    color: crimson;
+#main-nav > div > ul, #main-nav > div, #main-nav{
+    padding: 0px;
+}
+
+div#content-well{
+    padding: 5%;
+    margin: 5%;
+    margin-top: 3%;
+}
+
+input#login-btn{
+    background-color: #2779e0;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
+div#login-form{
+    margin: auto;
+    width: 300px;
 }
