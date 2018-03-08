@@ -14,4 +14,12 @@ CISAccredApp.config(function ($routeProvider) {
             templateUrl: 'pages/student.html',
             controller: 'studentController'
         })
+        .when('/user', {
+            templateUrl: 'pages/user.html',
+            controller: 'userController'
+        })
+        .when('/abet', {
+            templateUrl: 'pages/abet.html',
+            controller: 'abetController'
+        })
 });

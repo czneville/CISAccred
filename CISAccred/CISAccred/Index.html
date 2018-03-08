@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 
-
 <html ng-app="CISAccredApp">
 <head>
     <title>CISAccred</title>
@@ -15,11 +14,12 @@
     <script src="angular/main.controller.js"></script>
     <script src="angular/login.controller.js"></script>
     <script src="angular/home.controller.js"></script>
+    <script src="angular/student.controller.js"></script>
+    <script src="angular/abet.controller.js"></script>
+    <script src="angular/user.controller.js"></script>
     <script src="scripts/notify.min.js"></script>
     <link href="css/cissacred.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    
-
 </head>
 
 <body ng-controller="mainController" id="main">
@@ -29,14 +29,22 @@
             Doe, John P.
         </div>
     </div>
+    
+    <!--Navigation bar-->
     <nav id="main-nav">
         <div>
             <ul>
                 <li ng-click='$location.path("/home");'>
-                        Home
+                    Home
                 </li>
                 <li ng-click='$location.path("/student");'>
-                        Student Records
+                    Student Records
+                </li>
+                <li ng-click='$location.path("/abet");'>
+                    ABET Data
+                </li>
+                <li ng-click='$location.path("/user");'>
+                    User Management
                 </li>
             </ul>
         </div>
