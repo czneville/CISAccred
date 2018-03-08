@@ -1,5 +1,4 @@
-﻿
-var CISAccredApp = angular.module('CISAccredApp', ['ngRoute']);
+﻿var CISAccredApp = angular.module('CISAccredApp', ['ngRoute']);
 
 CISAccredApp.config(function ($routeProvider) {
     $routeProvider
@@ -10,5 +9,9 @@ CISAccredApp.config(function ($routeProvider) {
         .when('/home', {
             templateUrl: 'pages/home.html',
             controller: 'homeController'
+        })
+        .when('/student', {
+            templateUrl: 'pages/student.html',
+            controller: 'studentController'
         })
 });

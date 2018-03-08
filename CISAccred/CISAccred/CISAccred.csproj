@@ -74,6 +74,7 @@
     <Content Include="angular\home.controller.js" />
     <Content Include="angular\login.controller.js" />
     <Content Include="angular\main.controller.js" />
+    <Content Include="angular\student.controller.js" />
     <Content Include="api\useless.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -101,6 +102,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\login.html" />
+    <Content Include="pages\student.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />
     <Content Include="scripts\angular-route.min.js" />
