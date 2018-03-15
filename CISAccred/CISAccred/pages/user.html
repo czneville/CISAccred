@@ -1,5 +1,30 @@
-﻿Hide message: <input type="checkbox" ng-model="userApp">
-
-<div ng-hide="userApp">
-    {{message}}
+﻿<form id="">
+    <label for="userAdd">Show userAdd</label>
+    <input id="userAdd" type="radio" name="content" ng-model="content" value="add" checked="checked" />
+    <br />
+    <label for="userEdit">Show userEdit</label>
+    <input id="userEdit" type="radio" name="content" ng-model="content" value="edit" />
+    <br />
+    <label for="userDelete">Show userDelete</label>
+    <input id="userDelete" type="radio" name="content" ng-model="content" value="delete" />
+</form>
+<br />
+<div class="wrapper">
+    <div id="userAdd-form" ng-show="content == 'add'">
+        <form>
+            Name: <input type="text" class="form-control" placeholder="Name" ng-model="name" /><br />
+            Username: <input type="text" class="form-control" placeholder="Username" ng-model="username" /><br />
+            Password: <input type="text" class="form-control" placeholder="Password" ng-model="password" /><br />
+            Is Admin? <input type="checkbox" class="form-control" ng-model="admin" /><br />
+            <input id="userAdd" type="submit" class="btn btn-default" value="Add User" ng-click="" /><br /><br />
+        </form>
+    </div>
+    <div id="userEdit-form" ng-show="content == 'edit'">
+        userEdit
+        {{message}}
+    </div>
+    <div id="userdelete-form" ng-show="content == 'delete'">
+        userDelete
+        {{message}}
+    </div>
 </div>
