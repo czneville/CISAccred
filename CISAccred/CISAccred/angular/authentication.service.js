@@ -20,12 +20,17 @@ CISAccredApp.factory('authentication', function ($http) {
                 var result = {};
                 result["p_id"]=$loginresult["p_id"];
                 result["session_key"] = $loginresult["session_key"];
+                result["username"] = $loginresult["p_name"];
                 successCallBack(result);
             }
 
         }, function (response) {
             failCallBack();
         });
+    };
+
+    authentication.checkSession = function (key) {
+
     };
     return authentication;
 });

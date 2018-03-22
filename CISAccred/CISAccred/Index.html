@@ -11,6 +11,7 @@
     <script src="scripts/bootstrap.min.js"></script>
     <script src="angular/cisaccredapp.module.js"></script>
     <script src="angular/authentication.service.js"></script>
+    <script src="angular/session.service.js"></script>
     <script src="angular/main.controller.js"></script>
     <script src="angular/login.controller.js"></script>
     <script src="angular/home.controller.js"></script>
@@ -26,7 +27,7 @@
     <div id="logo">
             CISAccred
         <div style="float: right; font-size: 22px; margin-top: 12px; margin-right: 10px;">
-            Doe, John P.
+            <span ng-bind="session.username"></span>
         </div>
     </div>
     
