@@ -22,4 +22,9 @@ CISAccredApp.config(function ($routeProvider) {
             templateUrl: 'pages/abet.html',
             controller: 'abetController'
         })
+
+        .when('/hidden', {
+            templateUrl: 'pages/hidden.html',
+            controller: 'hiddenController'
+        })
 });
