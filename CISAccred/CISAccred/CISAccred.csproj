@@ -75,6 +75,7 @@
     <Content Include="angular\home.controller.js" />
     <Content Include="angular\login.controller.js" />
     <Content Include="angular\main.controller.js" />
+    <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
     <Content Include="angular\user.controller.js" />
     <Content Include="api\useless.php" />
