@@ -1,5 +1,186 @@
-﻿Hide message: <input type="checkbox" ng-model="abetApp">
+﻿{{message}}
 
-<div ng-hide="abetApp">
-    {{message}}
+<br />
+
+Hide Add Modules: <input type="checkbox" ng-model="addAbet">
+
+<br />
+
+Hide Edit Modules: <input type="checkbox" ng-model="editAbet">
+
+<br /><br />
+
+<div ng-hide="addAbet">
+
+    <p>
+        addAbet
+    </p>
+
+    <!--Launch Modal-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClass">
+        Add Class
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCriteria">
+        Add Criteria
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addObjective">
+        Add Objective
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addOutcome">
+        Add Outcome
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRubric">
+        Add Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addScoreset">
+        Add Scoreset
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTask">
+        Add Task
+    </button>
+
+</div>
+
+<br /><br />
+
+<div ng-hide="editAbet">
+    <p>
+        editAbet
+    </p>
+
+</div>
+
+<!--Modals-->
+<div class="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addClassLabel">Add Class</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        Class Semester: <input type="text" class="form-control" placeholder="C_SEMESTER" ng-model="c_semester" /><br />
+                        Class Course Number: <input type="text" class="form-control" placeholder="C_COURSE_NUM" ng-model="c_course_num" /><br />
+                        Class Section: <input type="text" class="form-control" placeholder="C_SECTION" ng-model="C_SECTION" /><br />
+                        <input id="classAdd" type="submit" class="btn btn-default" value="Add Class" ng-click="" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addCriteria" tabindex="-1" role="dialog" aria-labelledby="addCriteriaLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addCriteriaLabel">Add Criteria</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addCriteria-form">
+                    <form>
+                        Criteria Line: <input type="text" class="form-control" placeholder="CRITERIA_LINE" ng-model="criteria_line" /><br />
+                        Rubric ID: <input type="text" class="form-control" placeholder="R_ID" ng-model="r_id" /><br />
+                        Criteria Task Name: <input type="text" class="form-control" placeholder="CRIT_TASK_NAME" ng-model="crit_task_name" /><br />
+                        Criteria Task Description: <input type="text" class="form-control" placeholder="CRIT_TASK_DESC" ng-model="crit_task_desc" /><br />
+                        <input id="criteriaAdd" type="submit" class="btn btn-default" value="Add Criteria" ng-click="" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addObjective" tabindex="-1" role="dialog" aria-labelledby="addObjectiveLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addObjectiveLabel">Add Objective</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addObjective-form">
+                    <form>
+                        Objective ID: <input type="text" class="form-control" placeholder="OBJ_ID" ng-model="obj_id" /><br />
+                        Objective Name: <input type="text" class="form-control" placeholder="OBJ_NAME" ng-model="obj_name" /><br />
+                        Objective Description: <input type="text" class="form-control" placeholder="OBJ_DESC" ng-model="obj_desc" /><br />
+                        Objective Benchmark: <input type="text" class="form-control" placeholder="OBJ_BENCH" ng-model="obj_bench" /><br />
+                        <input id="objectiveAdd" type="submit" class="btn btn-default" value="Add Objective" ng-click="" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addOutcome" tabindex="-1" role="dialog" aria-labelledby="addOutcomeLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addOutcomeLabel">Add Outcome</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addOutcome-form">
+                    <form>
+                        Outcome ID: <input type="text" class="form-control" placeholder="OUT_ID" ng-model="out_id" /><br />
+                        Outcome Name: <input type="text" class="form-control" placeholder="OUT_NAME" ng-model="out_name" /><br />
+                        Outcome Description: <input type="text" class="form-control" placeholder="OUT_DESC" ng-model="out_desc" /><br />
+                        Outcome Benchmark: <input type="text" class="form-control" placeholder="OUT_BENCH" ng-model="out_bench" /><br />
+                        <input id="outcomeAdd" type="submit" class="btn btn-default" value="Add Outcome" ng-click="" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addRubric" tabindex="-1" role="dialog" aria-labelledby="addRubricLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addRubricLabel">Add Outcome</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addRubric-form">
+                    <form>
+                        Rubric ID <input type="text" class="form-control" placeholder="R_ID" ng-model="r_id" /><br />
+                        Rubric Name: <input type="text" class="form-control" placeholder="R_NAME" ng-model="r_name" /><br />
+                        Rubric Assessment Method: <input type="text" class="form-control" placeholder="R_ASSESSMENT_METH" ng-model="r_assessment_meth" /><br />
+                        <input id="rubricAdd" type="submit" class="btn btn-default" value="Add Rubric" ng-click="" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
