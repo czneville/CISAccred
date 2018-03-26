@@ -1,30 +1,64 @@
-﻿<form id="">
-    <label for="userAdd">Show userAdd</label>
-    <input id="userAdd" type="radio" name="content" ng-model="content" value="add" checked="checked" />
-    <br />
-    <label for="userEdit">Show userEdit</label>
-    <input id="userEdit" type="radio" name="content" ng-model="content" value="edit" />
-    <br />
-    <label for="userDelete">Show userDelete</label>
-    <input id="userDelete" type="radio" name="content" ng-model="content" value="delete" />
-</form>
+﻿{{message}}
+
 <br />
-<div class="wrapper">
-    <div id="userAdd-form" ng-show="content == 'add'">
-        <form>
-            Name: <input type="text" class="form-control" placeholder="Name" ng-model="name" /><br />
-            Username: <input type="text" class="form-control" placeholder="Username" ng-model="username" /><br />
-            Password: <input type="text" class="form-control" placeholder="Password" ng-model="password" /><br />
-            Is Admin? <input type="checkbox" class="form-control" ng-model="admin" /><br />
-            <input id="userAdd" type="submit" class="btn btn-default" value="Add User" ng-click="" /><br /><br />
-        </form>
-    </div>
-    <div id="userEdit-form" ng-show="content == 'edit'">
-        userEdit
-        {{message}}
-    </div>
-    <div id="userdelete-form" ng-show="content == 'delete'">
-        userDelete
-        {{message}}
-    </div>
+
+Hide Add Modules: <input type="checkbox" ng-model="addUser">
+
+<br />
+
+Hide Edit Modules: <input type="checkbox" ng-model="editUser">
+
+<br /><br />
+
+<div ng-hide="addUser">
+
+	<p>
+		addUser
+	</p>
+
+	<!--Launch Modal-->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUser">
+		Add User
+	</button>
+
+
+
+</div>
+
+<br /><br />
+
+<div ng-hide="editUser">
+	<p>
+		editUser
+	</p>
+
+</div>
+
+<!--Modals-->
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserLabel" adia-hiden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title" id="addUserLabel">Add User</h3>
+			</div>
+			<div class="modal-body">
+				<div id="addUser-form">
+					<form>
+						User's First Name : <input type="text" class="form-control" placeholder="First Name" ng-model="P_fname" /><br />
+						User's Last Name : <input type="text" class="form-control" placeholder="Last Name" C_SECTION" ng-model="p_lname" /><br />
+						User's CWID : <input type="text" class="form-control" placeholder="CWID" ng-model="p_id" /><br />
+						User's Username : <input type="text" class="form-control" placeholder="Username" ng-model="p_username" /><br />
+						User's Password: <input type="text" class="form-control" placeholder="Password" ng-model="p_password" /><br />
+						<input type="checkbox" name="amid" value="UserAdmin">This user has Admin privileges<br>
+						<input id="userAdd" type="submit" class="btn btn-default" value="Add User" ng-click="" /><br /><br />
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
