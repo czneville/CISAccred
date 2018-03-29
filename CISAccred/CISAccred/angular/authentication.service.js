@@ -19,6 +19,7 @@ CISAccredApp.factory('authentication', function ($http, php) {
                 result["p_id"] = $loginresult["p_id"];
                 result["session_key"] = $loginresult["session_key"];
                 result["username"] = $loginresult["p_name"];
+                result["p_isadmin"] = $loginresult["p_isadmin"];
                 successCallBack(result);
             }
         }, function (response) {

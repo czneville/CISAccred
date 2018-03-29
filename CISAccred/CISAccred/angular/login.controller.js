@@ -6,6 +6,11 @@ CISAccredApp.controller('loginController', function ($scope, $http, $location, a
             session.setKey(result["session_key"]);
             session.setId(result["p_id"]);
             session.setName(result["username"]);
+            if (result["p_isadmin"] === "1") {
+                session.isAdmin = true;
+            } else {
+                session.isAdmin = false;
+            }
             $location.path("/home");
         }, function () {
             $.notify("Login Failed!");

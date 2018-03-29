@@ -1,12 +1,14 @@
 ﻿var CISAccredApp = angular.module('CISAccredApp');
 
-CISAccredApp.service('session', function () {
+CISAccredApp.service('session', function ($location) {
 
     this.key = "";
 
     this.id = "";
 
     this.username = "";
+
+    this.isAdmin = false;
 
     this.setId = function (id) {
         if (typeof (id) !== "undefined") {
@@ -34,5 +36,31 @@ CISAccredApp.service('session', function () {
             return false;
         }
     };
+
+    this.isLoggedIn = function () {
+        if (this.id != "") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    this.showLoginForm = function () {
+        if (this.id === "") {
+            $location.path("/");
+        }
+    };
+
+    this.logout = function () {
+        this.key = "";
+
+        this.id = "";
+
+        this.username = "";
+
+        this.isAdmin = false;
+
+        $location.path("/");
+    }
 
 });

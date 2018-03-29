@@ -62,3 +62,7 @@ div#login-form{
     margin: auto;
     width: 300px;
 }
+
+#main-nav > div > ul > li.logout-btn{
+    float: right;
+}
