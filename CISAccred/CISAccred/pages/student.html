@@ -1,5 +1,52 @@
-﻿Hide message: <input type="checkbox" ng-model="studentApp">
+﻿{{message}}
 
-<div ng-hide="studentApp">
-    {{message}}
+<br />
+
+Hide Add Modules: <input type="checkbox" ng-model="addStudent">
+
+<br />
+
+<div ng-hide="addStudent">
+
+    <p>
+        addStudent
+    </p>
+
+    <!--Launch Modal-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSOPHPROJ">
+        Systems Analysis I Project Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addETHICPPR">
+        Ethics Essay Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPROJMGMT">
+        Systems Project Management Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSFTWRPPR">
+        Survey of SDLC Tools Paper Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSRPRJPRO">
+        Senior Project  Part 1&2 Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSRPRPRES">
+        Senior Project Presentation Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUSERMANL">
+        User Manual Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTECHPAPR">
+        Technology Paper Rubric
+    </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGRDSTSRV">
+        Graduating Student Survey
+    </button>
+
 </div>
