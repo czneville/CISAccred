@@ -80,7 +80,7 @@
     <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
     <Content Include="angular\user.controller.js" />
-    <Content Include="api\useless.php" />
+    <Content Include="api\addClass.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
