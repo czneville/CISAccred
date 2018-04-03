@@ -9,84 +9,84 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         classData["c_semester"] = c_semester;
         classData["c_course_num"] = c_course_num;
         classData["c_section"] = c_section;
-        php.post(classData, url, function (response) { });
 
         var url = '/api/addClass.php';
 
+        php.post(classData, url, function (response) { });
     }
 
     $scope.addCriteria = function () {
-        var classData = Array();
-        classData["criteria_line"] = criteria_line;
-        classData["r_id"] = r_id;
-        classData["crit_task_name"] = crit_task_name;
-        classData["crit_task_desc"] = crit_task_desc;
-        php.post(classData, url, function (response) { });
+        var criteriaData = Array();
+        criteriaData["criteria_line"] = criteria_line;
+        criteriaData["r_id"] = r_id;
+        criteriaData["crit_task_name"] = crit_task_name;
+        criteriaData["crit_task_desc"] = crit_task_desc;
 
         var url = '/api/addCriteria.php';
 
+        php.post(criteriaData, url, function (response) { });
     }
 
     $scope.addObjective = function () {
-        var classData = Array();
-        classData["obj_id"] = obj_id;
-        classData["obj_name"] = obj_name;
-        classData["obj_desc"] = obj_desc;
-        classData["obj_bench"] = obj_bench;
-        php.post(classData, url, function (response) { });
+        var objectiveData = Array();
+        objectiveData["obj_id"] = obj_id;
+        objectiveData["obj_name"] = obj_name;
+        objectiveData["obj_desc"] = obj_desc;
+        objectiveData["obj_bench"] = obj_bench;
 
         var url = '/api/addObjective.php';
 
+        php.post(objectiveData, url, function (response) { });
     }
 
     $scope.addOutcome = function () {
-        var classData = Array();
-        classData["out_id"] = out_id;
-        classData["out_name"] = out_name;
-        classData["out_desc"] = out_desc;
-        classData["out_benchmark"] = out_benchmark;
-        php.post(classData, url, function (response) { });
+        var outcomeData = Array();
+        outcomeData["out_id"] = out_id;
+        outcomeData["out_name"] = out_name;
+        outcomeData["out_desc"] = out_desc;
+        outcomeData["out_benchmark"] = out_benchmark;
 
         var url = '/api/addOutcome.php';
 
+        php.post(outcomeData, url, function (response) { });
     }
 
     $scope.addRubric = function () {
-        var classData = Array();
-        classData["r_id"] = r_id;
-        classData["r_name"] = r_name;
-        classData["r_assessment_meth"] = r_assessment_meth;
-        php.post(classData, url, function (response) { });
+        var rubricData = Array();
+        rubricData["r_id"] = r_id;
+        rubricData["r_name"] = r_name;
+        rubricData["r_assessment_meth"] = r_assessment_meth;
 
         var url = '/api/addRubric.php';
 
+        php.post(rubricData, url, function (response) { });
     }
 
     $scope.addScoreset = function () {
-        var classData = Array();
-        classData["score_id"] = score_id;
-        classData["student_fname"] = student_fname;
-        classData["student_lname"] = student_lname;
-        classData["r_id"] = r_id;
-        classData["p_id"] = p_id;
-        classData["c_semester"] = c_semester;
-        classData["c_course_num"] = c_course_num;
-        classData["c_section"] = c_section;
-        php.post(classData, url, function (response) { });
+        var scoresetData = Array();
+        scoresetData["score_id"] = score_id;
+        scoresetData["student_fname"] = student_fname;
+        scoresetData["student_lname"] = student_lname;
+        scoresetData["r_id"] = r_id;
+        scoresetData["p_id"] = p_id;
+        scoresetData["c_semester"] = c_semester;
+        scoresetData["c_course_num"] = c_course_num;
+        scoresetData["c_section"] = c_section;
 
         var url = '/api/addScoreset.php';
 
+        php.post(scoresetData, url, function (response) { });
     }
 
     $scope.addTask = function () {
-        var classData = Array();
-        classData["r_id"] = r_id;
-        classData["c_semester"] = c_semester;
-        classData["c_course_num"] = c_course_num;
-        classData["c_section"] = c_section;
-        php.post(classData, url, function (response) { });
+        var taskData = Array();
+        taskData["r_id"] = r_id;
+        taskData["c_semester"] = c_semester;
+        taskData["c_course_num"] = c_course_num;
+        taskData["c_section"] = c_section;
 
         var url = '/api/addTask.php';
 
+        php.post(taskData, url, function (response) { });
     }
 });
