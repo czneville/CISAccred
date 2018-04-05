@@ -72,7 +72,6 @@
     <Content Include="angular\abet.controller.js" />
     <Content Include="angular\authentication.service.js" />
     <Content Include="angular\cisaccredapp.module.js" />
-    <Content Include="angular\hidden.controller.js" />
     <Content Include="angular\home.controller.js" />
     <Content Include="angular\login.controller.js" />
     <Content Include="angular\main.controller.js" />
@@ -80,6 +79,12 @@
     <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
     <Content Include="angular\user.controller.js" />
+    <Content Include="api\addTask.php" />
+    <Content Include="api\addScoreset.php" />
+    <Content Include="api\addRubric.php" />
+    <Content Include="api\addOutcome.php" />
+    <Content Include="api\addObjective.php" />
+    <Content Include="api\addCriteria.php" />
     <Content Include="api\addClass.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -107,7 +112,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\abet.html" />
-    <Content Include="pages\hidden.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\student.html" />
     <Content Include="pages\user.html" />
