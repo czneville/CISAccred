@@ -3,7 +3,9 @@
 CISAccredApp.controller('abetController', function ($scope, session, php) {
     session.showLoginForm();
     $scope.message = 'You\'re on the ABET data page!';
-
+    $scope.class = new Object();
+    $scope.class.season = "Fall";
+    $scope.class.year = new Date().getFullYear().toString();
     $scope.addClass = function () {
         var semeseter = $scope.class.season + " " + $scope.class.year;
         var postData = Array();

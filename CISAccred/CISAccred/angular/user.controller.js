@@ -11,5 +11,6 @@ CISAccredApp.controller('userController', function ($scope, session) {
         userData[""] = p_username;
         userData[""] = p_password;
         userData[""] = p_isadmin;
+    };
 
 });
