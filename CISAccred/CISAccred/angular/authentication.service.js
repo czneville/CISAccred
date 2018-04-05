@@ -7,7 +7,7 @@ CISAccredApp.factory('authentication', function ($http, php) {
         var postData = Array();
         postData["username"] = username;
         postData["password"] = password;
-        var url = '/api/verifyLogin.php';
+        var url = 'api/verifyLogin.php';
         php.post(postData, url, function (response) {
             $loginresult = response.data;
             if ($loginresult["p_id"] == undefined) {
