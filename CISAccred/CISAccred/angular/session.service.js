@@ -38,7 +38,7 @@ CISAccredApp.service('session', function ($location) {
     };
 
     this.isLoggedIn = function () {
-        if (this.id != "") {
+        if (this.id == "") {
             return false;
         } else {
             return true;

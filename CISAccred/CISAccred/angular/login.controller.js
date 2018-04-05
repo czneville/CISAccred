@@ -13,7 +13,7 @@ CISAccredApp.controller('loginController', function ($scope, $http, $location, a
             }
             $location.path("/home");
         }, function () {
-            $.notify("Login Failed!");
+            $("#login-btn").notify("Login Failed!");
         });
     };
 });

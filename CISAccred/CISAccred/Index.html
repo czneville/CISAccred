@@ -36,22 +36,22 @@
     <nav id="main-nav">
         <div>
             <ul>
-                <li ng-click='$location.path("/");' ng-hide="!session.isLoggedIn();">
+                <li ng-click='$location.path("/");' ng-hide="session.isLoggedIn();">
                     Login
                 </li>
-                <li ng-click='$location.path("/home");' ng-hide="session.isLoggedIn();">
+                <li ng-click='$location.path("/home");' ng-hide="!session.isLoggedIn();">
                     Home
                 </li>
-                <li ng-click='$location.path("/student");' ng-hide="session.isLoggedIn();">
+                <li ng-click='$location.path("/student");' ng-hide="!session.isLoggedIn();">
                     Student Records
                 </li>
-                <li ng-click='$location.path("/abet");' ng-hide="session.isLoggedIn();">
+                <li ng-click='$location.path("/abet");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
                     Add / Edit ABET Data
                 </li>
-                <li ng-click='$location.path("/user");' ng-hide="session.isLoggedIn();">
+                <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
                     User Management
                 </li>
-                <li class="logout-btn" ng-click='session.logout();' ng-hide="session.isLoggedIn();">
+                <li class="logout-btn" ng-click='session.logout();' ng-hide="!session.isLoggedIn();">
                     Logout
                 </li>
             </ul>

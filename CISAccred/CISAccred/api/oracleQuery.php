@@ -8,7 +8,7 @@
       $valid = oci_execute($query_handle);
       if((!$valid) || !($isFetch)){
         oci_close($DB_HANDLE);
-        return array();
+        return $valid;
       }
       $result = array();
       $i =0;

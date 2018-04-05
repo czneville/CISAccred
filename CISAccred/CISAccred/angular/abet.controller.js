@@ -5,14 +5,19 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     $scope.message = 'You\'re on the ABET data page!';
 
     $scope.addClass = function () {
-        var classData = Array();
-        classData["c_semester"] = c_semester;
-        classData["c_course_num"] = c_course_num;
-        classData["c_section"] = c_section;
-        php.post(classData, url, function (response) {});
+        var semeseter = $scope.class.season + " " + $scope.class.year;
+        var postData = Array();
+        postData["semester"] = semeseter;
+        postData["courseNumber"] = $scope.class.courseNumber;
+        postData["section"] = $scope.class.section;
+        
+        var url = "/api/addClass.php";
 
-        var url = '/api/addClass.php';
-
+        php.post(postData, url, function () {
+            $("#classAdd").notify("Class added.", "success");
+        }, function (response) {
+            $("#classAdd").notify("Add class failed!\n"+response.data);
+        });
     }
 
     $scope.addCriteria = function () {

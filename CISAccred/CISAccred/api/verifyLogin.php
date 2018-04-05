@@ -4,7 +4,8 @@
   include 'oracleQuery.php';
 	$query = executeQuery('select p_id, p_name, p_isadmin from cis_professor where p_username=\''.$username.'\' AND p_password=\''.$password.'\'');
   if(!isset($query[0])){
-    echo("{}");
+    header("HTTP/1.1 401 Unauthorized");
+    //echo("{}");
     exit;
   }
   $p_id = $query[0]['P_ID'];
