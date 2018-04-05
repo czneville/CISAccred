@@ -2,14 +2,15 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
   include 'oracleQuery.php';
-	$query = executeQuery('select p_id, p_name, p_isadmin from cis_professor where p_username=\''.$username.'\' AND p_password=\''.$password.'\'');
+	$query = executeQuery('select p_id, p_fname, p_lname, p_isadmin from cis_professor where p_username=\''.$username.'\' AND p_password=\''.$password.'\'');
   if(!isset($query[0])){
     header("HTTP/1.1 401 Unauthorized");
     //echo("{}");
     exit;
   }
   $p_id = $query[0]['P_ID'];
-  $p_name = $query[0]["P_NAME"];
+  $p_name = $query[0]["P_FNAME"];
+  $p_name = $p_name . $query[0]["P_LNAME"];
   $p_isadmin = $query[0]["P_ISADMIN"];
   $session_key = uniqid();
   $json_result["p_id"] = $p_id;
