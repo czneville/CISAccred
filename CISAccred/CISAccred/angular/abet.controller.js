@@ -12,6 +12,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["semester"] = semeseter;
         postData["courseNumber"] = $scope.class.courseNumber;
         postData["section"] = $scope.class.section;
+        postData["session_key"] = session.key;
         
         var url = "/api/addClass.php";
 
