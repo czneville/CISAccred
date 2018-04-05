@@ -13,4 +13,5 @@ CISAccredApp.controller('userController', function ($scope, session) {
         userData[""] = p_isadmin;
     };
 
+    }
 });
