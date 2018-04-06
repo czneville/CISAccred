@@ -4,6 +4,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     session.showLoginForm();
     $scope.message = 'You\'re on the ABET data page!';
     $scope.class = new Object();
+    $scope.outcome = new Object();
     $scope.class.season = "Fall";
     $scope.class.year = new Date().getFullYear().toString();
     $scope.addClass = function () {
@@ -32,7 +33,18 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     }
 
     $scope.addOutcome = function () {
+        var postData = Array();
+        postData["out_name"] = $scope.outcome.name;
+        postData["out_desc"] = $scope.outcome.desc;
+        postData["session_key"] = session.key;
 
+        var url = "/api/addOutcome.php";
+
+        php.post(postData, url, function () {
+            $("#outcomeAdd").notify("Outcome added.", "success");
+        }, function (response) {
+            $("#outcomeAdd").notify("Add outcome failed!\n" + response.data);
+        });
     }
 
     $scope.addRubric = function () {
