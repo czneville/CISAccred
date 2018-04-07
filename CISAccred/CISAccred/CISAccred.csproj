@@ -78,6 +78,7 @@
     <Content Include="angular\php.service.js" />
     <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
+    <Content Include="angular\testing.controller.js" />
     <Content Include="angular\user.controller.js" />
     <Content Include="api\addTask.php" />
     <Content Include="api\addScoreset.php" />
@@ -114,6 +115,7 @@
     <Content Include="pages\abet.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\student.html" />
+    <Content Include="pages\testing.html" />
     <Content Include="pages\user.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />
