@@ -17,6 +17,6 @@
   $json_result["session_key"] = $session_key;
   $json_result["p_name"] = $p_name;
   $json_result["p_isadmin"] = $p_isadmin;
-  executeQuery('INSERT INTO CIS_SESSION VALUES('.$p_id.', \''.$session_key.'\', TO_DATE(\''.(new DateTime())->format('Y-m-d H-i-s').'\', \'YYYY-MM-DD hh24:mi:ss\'))', false);
+  executeQuery("INSERT INTO CIS_SESSION VALUES(".$p_id.", '".$session_key."', TO_DATE('".(new DateTime())->format('Y-m-d H-i-s')."', 'YYYY-MM-DD hh24:mi:ss'))", false);
   echo(json_encode($json_result));
 ?>
