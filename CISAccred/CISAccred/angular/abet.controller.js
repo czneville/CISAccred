@@ -3,8 +3,16 @@
 CISAccredApp.controller('abetController', function ($scope, session, php) {
     session.showLoginForm();
     $scope.message = 'You\'re on the ABET data page!';
+
+    $scope.activeTab = new Object();
+    $scope.activeTab.active = 'class';
+    $scope.activeTab.set = function (tab) {
+        $("#" + $scope.activeTab.active).removeClass("active");
+        $scope.activeTab.active = tab;
+        $("#" + tab).addClass("active");
+    };
+
     $scope.class = new Object();
-    $scope.outcome = new Object();
     $scope.class.season = "Fall";
     $scope.class.year = new Date().getFullYear().toString();
     $scope.addClass = function () {
@@ -24,14 +32,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         });
     }
 
-    $scope.addCriteria = function () {
-
-    }
-
-    $scope.addObjective = function () {
-
-    }
-
+    $scope.outcome = new Object();
     $scope.addOutcome = function () {
         var postData = Array();
         postData["out_name"] = $scope.outcome.name;
@@ -47,15 +48,4 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         });
     }
 
-    $scope.addRubric = function () {
-
-    }
-
-    $scope.addScoreset = function () {
-
-    }
-
-    $scope.addTask = function () {
-
-    }
 });
