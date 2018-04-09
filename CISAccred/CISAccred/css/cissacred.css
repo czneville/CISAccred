@@ -66,3 +66,10 @@ div#login-form{
 #main-nav > div > ul > li.logout-btn{
     float: right;
 }
+
+div#abet-tab {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
