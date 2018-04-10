@@ -78,7 +78,9 @@
     <Content Include="angular\php.service.js" />
     <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
+    <Content Include="angular\testing.controller.js" />
     <Content Include="angular\user.controller.js" />
+    <Content Include="api\addUser.php" />
     <Content Include="api\addTask.php" />
     <Content Include="api\addScoreset.php" />
     <Content Include="api\addRubric.php" />
@@ -112,8 +114,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\abet.html" />
+    <Content Include="pages\abet2.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\student.html" />
+    <Content Include="pages\testing.html" />
     <Content Include="pages\user.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />

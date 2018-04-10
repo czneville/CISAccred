@@ -22,4 +22,9 @@ CISAccredApp.config(function ($routeProvider) {
             templateUrl: 'pages/abet.html',
             controller: 'abetController'
         })
+
+        .when('/testing', {
+            templateUrl: 'pages/testing.html',
+            controller: 'testingController'
+        })
 });
