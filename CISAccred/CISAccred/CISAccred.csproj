@@ -80,6 +80,7 @@
     <Content Include="angular\student.controller.js" />
     <Content Include="angular\testing.controller.js" />
     <Content Include="angular\user.controller.js" />
+    <Content Include="api\addUser.php" />
     <Content Include="api\addTask.php" />
     <Content Include="api\addScoreset.php" />
     <Content Include="api\addRubric.php" />
