@@ -20,5 +20,5 @@ CISAccredApp.controller('userController', function ($scope, session) {
         }, function (response) {
             $("#addUser").notify("Add user failed!\n" + response.data);
         });
-    }
+    };
 });
