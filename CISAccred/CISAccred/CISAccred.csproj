@@ -111,6 +111,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="api\getClass.php" />
+    <Content Include="api\getOutcome.php" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\abet.html" />
     <Content Include="pages\abet2.html" />

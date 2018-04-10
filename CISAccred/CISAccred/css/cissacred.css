@@ -73,3 +73,42 @@ div#abet-tab {
     border-bottom: 1px solid #ddd;
     background: white;
 }
+
+table.fancy-table{
+    border-collapse:unset;
+    width: 100%;
+    padding: 10px;
+}
+
+table.fancy-table > tbody > tr > td {
+    border: 1px solid;
+}
+
+table.fancy-table > tbody > tr > td:nth-child(1){
+    width: 10%;
+}
+
+table.fancy-table > tbody > tr > td:nth-child(2){
+    width: 70%;
+}
+
+table.fancy-table > tbody > tr:nth-child(2n+1){
+    background-color: #ddd;
+}
+
+table.fancy-table >tbody>tr>td>a{
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+table.fancy-table >tbody>tr:last-child>td>a{
+    color: darkgreen;
+}
+
+table.fancy-table >tbody>tr>td:nth-child(3)>a{
+    color: rebeccapurple;
+}
+
+table.fancy-table >tbody>tr>td:nth-child(4)>a{
+    color: crimson;
+}

@@ -2,7 +2,7 @@
 <div>
 
     <!--Launch Modal-->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClass">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClass" ng-click="class = new Object(); class.verb='add';">
         Add Class
     </button>
 
@@ -51,7 +51,7 @@
 </div>
 
 <!--Modals-->
-<div class="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" adia-hiden="true">
+<div class="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -144,7 +144,7 @@
                                         <option value='2098'>2098</option>
                                         <option value='2099'>2099</option>
                                     </select><br />
-                                    Semeseter: <select class="form-control" name="season" ng-model="class.season">
+                            Semeseter: <select class="form-control" name="season" ng-model="class.season">
                                         <option value="Fall">Fall</option>
                                         <option value="Spring">Spring</option>
                                         <option value="Summer">Summer</option>

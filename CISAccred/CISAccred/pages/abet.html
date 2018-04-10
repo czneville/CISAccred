@@ -5,7 +5,25 @@
 </ul>
 
 <div id="abet-tab" ng-show="activeTab.active === 'class'">
-    Class page!
+    <h3 style="margin-top: 0px; padding: 10px;">Classes:</h3>
+    <table class="fancy-table">
+        <tr>
+            <td><b>Course Number</b></td>
+            <td><b>Course Title</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="c in classes">
+            <td>{{c["C_COURSE_NUM"]}}</td>
+            <td>{{c["C_COURSE_TITLE"]}}</td>
+            <td><a data-toggle="modal" data-target="#addClass" ng-click="class.verb = 'modify';class.courseNumber = c['C_COURSE_NUM'];class.title = c['C_COURSE_TITLE'];class.id=c['C_ID'];">Edit...</a></td>
+            <td><a ng-click="class.verb = 'delete';class.id=c['C_ID'];chooseClassFunction();">Delete...</a></td>
+        </tr>
+        <tr>
+            <td colspan="4"><a data-toggle="modal" data-target="#addClass" ng-click="class.verb='add';class.courseNumber='';class.title='';">Add new class...</a></td>
+        </tr>
+    </table>
+    <br /><br />
 </div>
 
 <div  id="abet-tab" ng-show="activeTab.active === 'rubric'">
@@ -13,5 +31,71 @@
 </div>
 
 <div  id="abet-tab" ng-show="activeTab.active === 'outcome'">
-   outcome page!
+    <h3 style="margin-top: 0px; padding: 10px;">Outcomes:</h3>
+    <table class="fancy-table">
+        <tr>
+            <td><b>Outcome Name</b></td>
+            <td><b>Outcome Desc</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="o in outcomes">
+            <td>{{o["OUT_NAME"]}}</td>
+            <td>{{o["OUT_DESC"]}}</td>
+            <td><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb = 'modify';outcome.name =o['OUT_NAME'];outcome.desc=o['OUT_DESC'];outcome.id=o['OUT_ID'];">Edit...</a></td>
+            <td><a ng-click="outcome.verb = 'delete';outcome.id=o['OUT_ID'];chooseOutcomeFunction();">Delete...</a></td>
+        </tr>
+        <tr>
+            <td colspan="4"><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb='add';outcome.name='';outcome.desc='';">Add new class...</a></td>
+        </tr>
+    </table>
+    <br /><br />
+</div>
+
+<div class="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addClassLabel">Add Class</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        Class Course Number: <input type="text" class="form-control" placeholder="322" ng-model="class.courseNumber" /><br />
+                        Class Title: <input type="text" class="form-control" placeholder="DBMS" ng-model="class.title" /><br />
+                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseClassFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addOutcome" tabindex="-1" role="dialog" aria-labelledby="addOutcomeLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addOutcomeLabel">Add Outcome</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addOutcome-form">
+                    <form>
+                        Outcome Name: <input type="text" class="form-control" placeholder="Name..." ng-model="outcome.name" /><br />
+                        Outcome Description: <input type="text" class="form-control" placeholder="Description..." ng-model="outcome.desc" /><br />
+                        <input id="outcomeAdd" type="submit" class="btn btn-default" value="Add Outcome" ng-click="chooseOutcomeFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

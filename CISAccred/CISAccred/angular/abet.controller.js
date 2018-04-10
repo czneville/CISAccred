@@ -2,7 +2,6 @@
 
 CISAccredApp.controller('abetController', function ($scope, session, php) {
     session.showLoginForm();
-    $scope.message = 'You\'re on the ABET data page!';
 
     $scope.activeTab = new Object();
     $scope.activeTab.active = 'class';
@@ -13,39 +12,158 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     };
 
     $scope.class = new Object();
-    $scope.class.season = "Fall";
-    $scope.class.year = new Date().getFullYear().toString();
+    $scope.chooseClassFunction = function () {
+        if ($scope.class.verb == "add") {
+            $scope.addClass();
+        }
+        if ($scope.class.verb == "modify") {
+            $scope.modifyClass();
+        }
+        if ($scope.class.verb == "delete") {
+            $scope.deleteClass();
+        }
+    };
     $scope.addClass = function () {
-        var semeseter = $scope.class.season + " " + $scope.class.year;
         var postData = Array();
-        postData["semester"] = semeseter;
+        postData["verb"] = "add";
         postData["courseNumber"] = $scope.class.courseNumber;
-        postData["section"] = $scope.class.section;
+        postData["title"] = $scope.class.title;
         postData["session_key"] = session.key;
         
         var url = "/api/addClass.php";
 
         php.post(postData, url, function () {
-            $("#classAdd").notify("Class added.", "success");
+            $().notify("Class added.", "success");
+            $("#addClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateClasses();
         }, function (response) {
             $("#classAdd").notify("Add class failed!\n"+response.data);
+        });
+        
+    }
+    $scope.modifyClass = function () {
+        var postData = Array();
+        postData["verb"] = "modify";
+        postData["id"] = $scope.class.id;
+        postData["courseNumber"] = $scope.class.courseNumber;
+        postData["title"] = $scope.class.title;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addClass.php";
+
+        php.post(postData, url, function () {
+            $().notify("Class modified.", "success");
+            $("#addClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateClasses();
+        }, function (response) {
+            $("#classAdd").notify("Add class failed!\n" + response.data);
+        });
+    }
+    $scope.deleteClass = function () {
+        var postData = Array();
+        postData["verb"] = "delete";
+        postData["id"] = $scope.class.id;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addClass.php";
+
+        php.post(postData, url, function () {
+            $().notify("Class Deleted.", "success");
+            $("#addClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateClasses();
+        }, function (response) {
+            $("#classAdd").notify("Delete class failed!\n" + response.data);
         });
     }
 
     $scope.outcome = new Object();
+    $scope.chooseOutcomeFunction = function () {
+        if ($scope.outcome.verb == "add") {
+            $scope.addOutcome();
+        }
+        if ($scope.outcome.verb == "modify") {
+            $scope.modifyOutcome();
+        }
+        if ($scope.outcome.verb == "delete") {
+            $scope.deleteOutcome();
+        }
+    };
     $scope.addOutcome = function () {
         var postData = Array();
-        postData["out_name"] = $scope.outcome.name;
-        postData["out_desc"] = $scope.outcome.desc;
+        postData["verb"] = 'add';
+        postData["outcome_name"] = $scope.outcome.name;
+        postData["outcome_desc"] = $scope.outcome.desc;
         postData["session_key"] = session.key;
 
         var url = "/api/addOutcome.php";
 
         php.post(postData, url, function () {
             $("#outcomeAdd").notify("Outcome added.", "success");
+            updateOutcomes();
         }, function (response) {
             $("#outcomeAdd").notify("Add outcome failed!\n" + response.data);
         });
     }
+    $scope.modifyOutcome = function () {
+        var postData = Array();
+        postData["verb"] = "modify";
+        postData["id"] = $scope.outcome.id;
+        postData["outcome_name"] = $scope.outcome.name;
+        postData["outcome_desc"] = $scope.outcome.desc;
+        postData["session_key"] = session.key;
 
+        var url = "/api/addOutcome.php";
+
+        php.post(postData, url, function () {
+            $().notify("Class modified.", "success");
+            $("#addClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateOutcomes();
+        }, function (response) {
+            $("#classAdd").notify("Add class failed!\n" + response.data);
+        });
+    }
+    $scope.deleteOutcome = function () {
+        var postData = Array();
+        postData["verb"] = "delete";
+        postData["id"] = $scope.outcome.id;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addOutcome.php";
+
+        php.post(postData, url, function () {
+            $().notify("Class Deleted.", "success");
+            $("#addClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateOutcomes();
+        }, function (response) {
+            $("#classAdd").notify("Delete class failed!\n" + response.data);
+        });
+    }
+
+    var updateClasses = function () {
+        var postData = Array();
+        postData["session_key"] = session.key;
+        postData["isActive"] = "1";
+        var url = "/api/getClass.php";
+        php.post(postData, url, function (response) {
+            $scope.classes = new Object();
+            $scope.classes = angular.fromJson(response.data);
+        }, function (response) {
+            $("#classAdd").notify("Failed to load class list!\n" + response.data);
+        });
+    };
+    var updateOutcomes = function () {
+        var postData = Array();
+        postData["session_key"] = session.key;
+        postData["isActive"] = "1";
+        var url = "/api/getOutcome.php";
+        php.post(postData, url, function (response) {
+            $scope.outcomes = new Object();
+            $scope.outcomes = angular.fromJson(response.data);
+        }, function (response) {
+            $("#classAdd").notify("Failed to load class list!\n" + response.data);
+        });
+    };
+
+    updateClasses();
+    updateOutcomes();
 });
