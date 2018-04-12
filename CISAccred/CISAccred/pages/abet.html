@@ -27,7 +27,26 @@
 </div>
 
 <div  id="abet-tab" ng-show="activeTab.active === 'rubric'">
-    rubric page!
+    <h3 style="margin-top: 0px; padding: 10px;">Rubrics</h3>
+    <table class="fancy-table">
+        <tr>
+            <td><b>Rubric ID</b></td>
+            <td><b>Rubric Name</b></td>
+            <td><b>Rubric Assessment Method</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="r in rubrics">
+            <td>{{o["R_ID"]}}</td>
+            <td>{{o["R_NAME"]}}</td>
+            <td>{{o["R_ASSESSMENT_METH"]}}</td>
+            <td><a data-toggle="modal" data-target="#addRubric" ng-click="rubric.verb='modify';rubric.id=r['R_ID'];rubric.name=r['R_NAME'];rubric.assessment=r['R_ASSESSMENT_METH'];">Edit...</a></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4"><a data-toggle="modal" data-target="#addRubric" ng-click="rubric.verb='add';rubric.id='';rubric.name='';rubric.assessment">Add new rubric...</a></td>
+        </tr>
+    </table>
 </div>
 
 <div  id="abet-tab" ng-show="activeTab.active === 'outcome'">
@@ -64,6 +83,31 @@
                         Class Course Number: <input type="text" class="form-control" placeholder="322" ng-model="class.courseNumber" /><br />
                         Class Title: <input type="text" class="form-control" placeholder="DBMS" ng-model="class.title" /><br />
                         <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseClassFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addRubric" tabindex="-1" role="dialog" aria-labelledby="addRubricLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addRubricLabel">Add Rubric</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        Rubric ID Number: <input type="text" class="form-control" placeholder="3.14159265358979..." ng-model="rubric.id" /><br />
+                        Rubric Name: <input type="text" class="form-control" placeholder="lorem ipsum..." ng-model="rubric.name" /><br />
+                        Rubric Assessment Method: <input type="text" class="form-control" placeholder="lorem ipsum..." ng-model="rubric.assessment" /><br />
+                        <input id="rubricAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseRubricFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
