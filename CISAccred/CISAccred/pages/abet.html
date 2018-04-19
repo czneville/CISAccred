@@ -1,6 +1,6 @@
 ﻿<ul class="nav nav-tabs">
     <li id="class" class="active" role="presentation" ng-click="activeTab.set('class')"><a>Classes</a></li>
-    <li id="rubric" role="presentation" ng-click="activeTab.set('rubric')"><a>Rubrics</a></li>
+    <li id="rubric" role="presentation" ng-click="activeTab.set('rubric')"><a>Rubrics & Criteria</a></li>
     <li id="outcome" role="presentation" ng-click="activeTab.set('outcome')"><a>Outcomes</a></li>
 </ul>
 
@@ -14,20 +14,130 @@
             <td></td>
         </tr>
         <tr ng-repeat="c in classes">
-            <td>{{c["C_COURSE_NUM"]}}</td>
-            <td>{{c["C_COURSE_TITLE"]}}</td>
-            <td><a data-toggle="modal" data-target="#addClass" ng-click="class.verb = 'modify';class.courseNumber = c['C_COURSE_NUM'];class.title = c['C_COURSE_TITLE'];class.id=c['C_ID'];">Edit...</a></td>
-            <td><a ng-click="class.verb = 'delete';class.id=c['C_ID'];chooseClassFunction();">Delete...</a></td>
+            <td>&nbsp;{{c["C_COURSE_NUM"]}}</td>
+            <td>&nbsp;{{c["C_COURSE_TITLE"]}}</td>
+            <td><a data-toggle="modal" data-target="#addClass" ng-click="class.verb = 'modify';class.courseNumber = c['C_COURSE_NUM'];class.title = c['C_COURSE_TITLE'];class.id=c['C_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a ng-click="class.verb = 'delete';class.id=c['C_ID'];chooseClassFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
-            <td colspan="4"><a data-toggle="modal" data-target="#addClass" ng-click="class.verb='add';class.courseNumber='';class.title='';">Add new class...</a></td>
+            <td colspan="4"><a data-toggle="modal" data-target="#addClass" ng-click="class.verb='add';class.courseNumber='';class.title='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new class...</a></td>
         </tr>
     </table>
     <br /><br />
 </div>
 
 <div  id="abet-tab" ng-show="activeTab.active === 'rubric'">
-    rubric page!
+    <div class="rubric-presentation">
+        <ul class="nav nav-pills">
+            <li id="rubrics" role="presentation" class="active" ng-click="activePill.set('rubrics')"><a>Rubrics</a></li>
+            <li id="criteria" role="presentation" ng-click="activePill.set('criteria')"><a>Criteria</a></li>
+            <li id="rubricclass" role="presentation" ng-click="activePill.set('rubricclass')"><a>Rubric-Class Mapping</a></li>
+            <li id="criteriaoutcome" role="presentation" ng-click="activePill.set('criteriaoutcome')"><a>Criteria-Outcome Mapping</a></li>
+        </ul>
+
+        <div class="pill-box" ng-show="activePill.active === 'rubrics'">
+            <h3 style="margin-top: 0px; padding: 10px;">Rubrics:</h3>
+            <table class="fancy-table">
+                <tr>
+                    <td><b>Assessment Method</b></td>
+                    <td><b>Rubric Title</b></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr ng-repeat="r in rubrics">
+                    <td>&nbsp;{{r["R_ASSESSMENT_METH"]}}</td>
+                    <td>&nbsp;{{r["R_NAME"]}}</td>
+                    <td><a data-toggle="modal" data-target="#addRubric" ng-click="rubric.verb = 'modify';rubric.assessment_method = r['R_ASSESSMENT_METH'];rubric.name = r['R_NAME'];rubric.id=r['R_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+                    <td><a ng-click="selectedRubric='undefined';rubric.verb = 'delete';rubric.id=r['R_ID'];chooseRubricFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+                </tr>
+                <tr>
+                    <td colspan="4"><a data-toggle="modal" data-target="#addRubric" ng-click="rubric.verb='add';rubric.assessment_method='';rubric.name='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new rubric...</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="pill-box" ng-show="activePill.active === 'criteria'">
+            <h3 style="margin-top: 0px; padding: 10px;">Criteria:</h3><br />
+            <div style="margin-top: 0px; padding: 10px;">
+                <b>Rubric to Edit:</b>
+                <select class="form-control" ng-model="selectedRubric">
+                    <option ng-repeat="r in rubrics" value='{{r["R_ID"]}}'>{{r["R_NAME"]}}</option>
+                </select>
+                <div ng-show="selectedRubric != 'undefined'">
+                    <table class="criteria-table">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><b>No.</b></td>
+                            <td><b>Criteria Description</b></td>
+                            <td><b>Min</b></td>
+                            <td><b>Max</b></td>
+                            <td><b>Benchmark</b></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr ng-repeat="c in criteria" ng-show="c['R_ID'] == selectedRubric">
+                            <td>&nbsp;<span class="glyphicon glyphicon-arrow-up" ng-click="criterion.id = c['CRIT_ID']; criterion.verb='moveup'; chooseCriteriaFunction();"></span></td>
+                            <td>&nbsp;<span class="glyphicon glyphicon-arrow-down" ng-click="criterion.id = c['CRIT_ID']; criterion.verb='movedown'; chooseCriteriaFunction();"></span></td>
+                            <td>&nbsp;{{c["CRIT_LINE"]}}</td>
+                            <td>&nbsp;{{c["CRIT_TASK_DESC"]}}</td>
+                            <td>&nbsp;{{c["CRIT_MIN"]}}</td>
+                            <td>&nbsp;{{c["CRIT_MAX"]}}</td>
+                            <td>&nbsp;{{c["CRIT_BENCHMARK"]}}</td>
+                            <td><a data-toggle="modal" data-target="#addCriteria" ng-click="criterion.verb = 'modify';criterion.desc = c['CRIT_TASK_DESC'];criterion.min = c['CRIT_MIN'];criterion.max=c['CRIT_MAX'];criterion.benchmark=c['CRIT_BENCHMARK'];criterion.id=c['CRIT_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+                            <td><a ng-click="criterion.verb = 'delete';criterion.id=c['CRIT_ID'];chooseCriteriaFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="9"><a data-toggle="modal" data-target="#addCriteria" ng-click="criterion.desc = '';criterion.min = '';criterion.max='';criterion.benchmark=''; criterion.verb='add';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new criteria...</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="pill-box" ng-show="activePill.active === 'rubricclass'">
+            <h3 style="margin-top: 0px; padding: 10px;">Class Mapping:</h3><br />
+            <div style="margin-top: 0px; padding: 10px;">
+                <b>Rubric to Edit:</b>
+                <select class="form-control" ng-model="selectedRubric">
+                    <option ng-repeat="r in rubrics" value='{{r["R_ID"]}}'>{{r["R_NAME"]}}</option>
+                </select>
+                <div ng-show="selectedRubric != 'undefined'">
+                    <b>This rubric is mapped to the following classes:</b><br />
+                    <table class="fancy-table">
+                        <tr>
+                            <td><b>Course Number</b></td>
+                            <td><b>Course Title</b></td>
+                            <td></td>
+                        </tr>
+                        <tr ng-repeat="c in rubricclasses" ng-show="c['R_ID'] == selectedRubric">
+                            <td>&nbsp;{{c["C_COURSE_NUM"]}}</td>
+                            <td>&nbsp;{{c["C_COURSE_TITLE"]}}</td>
+                            <td>&nbsp;<a style="color: crimson;"><span class="glyphicon glyphicon-remove"></span>Delete Mapping</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">&nbsp;<a><span class="glyphicon glyphicon-plus"></span>Add new mapping...</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="pill-box" ng-show="activePill.active === 'criteriaoutcome'">
+            <h3 style="margin-top: 0px; padding: 10px;">Outcome Mapping:</h3><br />
+            <div style="margin-top: 0px; padding: 10px;">
+                <b>Rubric to use:</b>
+                <select class="form-control" ng-model="selectedRubric">
+                    <option ng-repeat="r in rubrics" value='{{r["R_ID"]}}'>{{r["R_NAME"]}}</option>
+                </select>
+                <br />
+                <b>Criteria to edit:</b>
+                <select class="form-control" ng-model="selectedCriteria">
+                    <option ng-repeat="c in criteria" value='{{c["CRITERIA_LINE"]}}'>{{c["CRIT_TASK_NAME"]}}</option>
+                </select>
+                <div ng-show="selectedRubric != 'undefined'">
+                    A RUBRIC IS SELECTED!
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div  id="abet-tab" ng-show="activeTab.active === 'outcome'">
@@ -50,13 +160,13 @@
         </tr>
     </table>
     <br /><br />
-</div>
+</div> 
 
 <div class="modal fade" id="addClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="addClassLabel">Add Class</h3>
+                <h3 class="modal-title" id="addClassLabel">{{firstUpper(class.verb)}} Class</h3>
             </div>
             <div class="modal-body">
                 <div id="addClass-form">
@@ -88,6 +198,56 @@
                         Outcome Name: <input type="text" class="form-control" placeholder="Name..." ng-model="outcome.name" /><br />
                         Outcome Description: <input type="text" class="form-control" placeholder="Description..." ng-model="outcome.desc" /><br />
                         <input id="outcomeAdd" type="submit" class="btn btn-default" value="Add Outcome" ng-click="chooseOutcomeFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addRubric" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addClassLabel">{{firstUpper(rubric.verb)}} Rubric</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        Assessment Method: <input type="text" class="form-control" placeholder="AM-1" ng-model="rubric.assessment_method" /><br />
+                        Rubric Name: <input type="text" class="form-control" placeholder="Ethics Essay" ng-model="rubric.name" /><br />
+                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseRubricFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addCriteria" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addClassLabel">{{firstUpper(criterion.verb)}} Rubric</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        Criteria Description: <input type="text" class="form-control" placeholder="Correct Grammar" ng-model="criterion.desc" /><br />
+                        Min Score: <input type="text" class="form-control" value="0" ng-model="criterion.min" /><br />
+                        Max Score: <input type="text" class="form-control" value="5" ng-model="criterion.max" /><br />
+                        Benchmark Score: <input type="text" class="form-control" value="3" ng-model="criterion.benchmark" /><br />
+                        <input id="criteriaAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseCriteriaFunction();" /><br /><br />
                     </form>
                 </div>
             </div>

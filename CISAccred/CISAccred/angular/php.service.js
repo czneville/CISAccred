@@ -20,9 +20,11 @@ CISAccredApp.factory('php', function ($http) {
         var postVariableCount = 0;
         for (var i in postData) {
             if (postVariableCount === 0) {
+                postData[i] = encodeURIComponent(postData[i]);
                 encodedPost += i + "=" + postData[i];
                 postVariableCount++;
             } else {
+                postData[i] = encodeURIComponent(postData[i]);
                 encodedPost += "&" + i + "=" + postData[i];
             }
         }

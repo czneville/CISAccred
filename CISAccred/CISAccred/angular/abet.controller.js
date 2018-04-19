@@ -2,13 +2,21 @@
 
 CISAccredApp.controller('abetController', function ($scope, session, php) {
     session.showLoginForm();
-
+    $scope.selectedRubric = 'undefined';
     $scope.activeTab = new Object();
     $scope.activeTab.active = 'class';
     $scope.activeTab.set = function (tab) {
         $("#" + $scope.activeTab.active).removeClass("active");
         $scope.activeTab.active = tab;
         $("#" + tab).addClass("active");
+    };
+
+    $scope.activePill = new Object();
+    $scope.activePill.active = 'rubrics';
+    $scope.activePill.set = function (pill) {
+        $("#" + $scope.activePill.active).removeClass("active");
+        $scope.activePill.active = pill;
+        $("#" + pill).addClass("active");
     };
 
     $scope.class = new Object();
@@ -139,8 +147,172 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         });
     }
 
+    $scope.rubric = new Object();
+    $scope.chooseRubricFunction = function () {
+        if ($scope.rubric.verb == "add") {
+            $scope.addRubric();
+        }
+        if ($scope.rubric.verb == "modify") {
+            $scope.modifyRubric();
+        }
+        if ($scope.rubric.verb == "delete") {
+            $scope.deleteRubric();
+        }
+    };
+    $scope.addRubric = function () {
+        var postData = Array();
+        postData["verb"] = 'add';
+        postData["assessment_method"] = $scope.rubric.assessment_method;
+        postData["name"] = $scope.rubric.name;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addRubric.php";
+
+        php.post(postData, url, function () {
+            $("#outcomeAdd").notify("Rubric added.", "success");
+            updateRubrics();
+        }, function (response) {
+            $("#outcomeAdd").notify("Add Rubric failed!\n" + response.data);
+        });
+    }
+    $scope.modifyRubric = function () {
+        var postData = Array();
+        postData["verb"] = "modify";
+        postData["assessment_method"] = $scope.rubric.assessment_method;
+        postData["name"] = $scope.rubric.name;
+        postData["id"] = $scope.rubric.id;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addRubric.php";
+
+        php.post(postData, url, function () {
+            $().notify("Rubric modified.", "success");
+            updateRubrics();
+        }, function (response) {
+            $("#classAdd").notify("Modify rubric failed!\n" + response.data);
+        });
+    }
+    $scope.deleteRubric = function () {
+        var postData = Array();
+        postData["verb"] = "delete";
+        postData["id"] = $scope.rubric.id;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addRubric.php";
+
+        php.post(postData, url, function () {
+            $().notify("Rubric Deleted.", "success");
+            updateRubrics();
+        }, function (response) {
+            $("#classAdd").notify("Delete rubric failed!\n" + response.data);
+        });
+    }
+
+    $scope.criterion = new Object();
+    $scope.chooseCriteriaFunction = function () {
+        if ($scope.criterion.verb == "add") {
+            $scope.addCriteria();
+        }
+        if ($scope.criterion.verb == "modify") {
+            $scope.modifyCriteria();
+        }
+        if ($scope.criterion.verb == "delete") {
+            $scope.deleteCriteria();
+        }
+        if ($scope.criterion.verb == "moveup") {
+            $scope.moveCriteriaUp();
+        }
+        if ($scope.criterion.verb == "movedown") {
+            $scope.moveCriteriaDown();
+        }
+    };
+    $scope.addCriteria = function () {
+        var postData = Array();
+        postData["verb"] = 'add';
+        postData["session_key"] = session.key;
+        postData["R_ID"] = $scope.selectedRubric;
+        postData["CRIT_DESC"] = $scope.criterion.desc;
+        postData["CRIT_MIN"] = $scope.criterion.min;
+        postData["CRIT_MAX"] = $scope.criterion.max;
+        postData["CRIT_BENCHMARK"] = $scope.criterion.benchmark;
+
+        var url = "/api/addCriteria.php";
+
+        php.post(postData, url, function () {
+            $("#criteriaAdd").notify("Criteria added.", "success");
+            updateCriteria();
+        }, function (response) {
+            $("#outcomeAdd").notify("Add Criteria failed!\n" + response.data);
+        });
+    };
+    $scope.modifyCriteria = function () {
+        var postData = Array();
+        postData["verb"] = 'modify';
+        postData["session_key"] = session.key;
+        postData["CRIT_ID"] = $scope.criterion.id;
+        postData["CRIT_DESC"] = $scope.criterion.desc;
+        postData["CRIT_MIN"] = $scope.criterion.min;
+        postData["CRIT_MAX"] = $scope.criterion.max;
+        postData["CRIT_BENCHMARK"] = $scope.criterion.benchmark;
+
+        var url = "/api/addCriteria.php";
+
+        php.post(postData, url, function () {
+            $().notify("Criteria modified.", "success");
+            updateCriteria();
+        }, function (response) {
+            $().notify("Modify Criteria failed!\n" + response.data);
+        });
+    };
+    $scope.deleteCriteria = function () {
+        var postData = Array();
+        postData["verb"] = "delete";
+        postData["id"] = $scope.criterion.id;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addCriteria.php";
+
+        php.post(postData, url, function () {
+            $().notify("Criteria Deleted.", "success");
+            updateCriteria();
+        }, function (response) {
+            $().notify("Delete criteria failed!\n" + response.data);
+        });
+    };
+    $scope.moveCriteriaUp = function () {
+        var postData = Array();
+        postData["verb"] = "moveup";
+        postData["id"] = $scope.criterion.id;
+        postData["R_ID"] = $scope.selectedRubric;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addCriteria.php";
+
+        php.post(postData, url, function () {
+            updateCriteria();
+        }, function (response) {
+            $().notify("Move criteria failed!\n" + response.data);
+        });
+    };
+    $scope.moveCriteriaDown = function () {
+        var postData = Array();
+        postData["verb"] = "movedown";
+        postData["id"] = $scope.criterion.id;
+        postData["R_ID"] = $scope.selectedRubric;
+        postData["session_key"] = session.key;
+
+        var url = "/api/addCriteria.php";
+
+        php.post(postData, url, function () {
+            updateCriteria();
+        }, function (response) {
+            $().notify("Move criteria failed!\n" + response.data);
+        });
+    };
+
     var updateClasses = function () {
         var postData = Array();
+        if (session.key == "") { return; }
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
         var url = "/api/getClass.php";
@@ -153,6 +325,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     };
     var updateOutcomes = function () {
         var postData = Array();
+        if (session.key == "") { return; }
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
         var url = "/api/getOutcome.php";
@@ -160,10 +333,43 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
             $scope.outcomes = new Object();
             $scope.outcomes = angular.fromJson(response.data);
         }, function (response) {
-            $("#classAdd").notify("Failed to load class list!\n" + response.data);
+            $("#classAdd").notify("Failed to load outcome list!\n" + response.data);
         });
+    };
+    var updateRubrics = function () {
+        var postData = Array();
+        if (session.key == "") { return; }
+        postData["session_key"] = session.key;
+        postData["isActive"] = "1";
+        var url = "/api/getRubric.php";
+        php.post(postData, url, function (response) {
+            $scope.rubrics = new Object();
+            $scope.rubrics = angular.fromJson(response.data);
+        }, function (response) {
+            $("#classAdd").notify("Failed to load rubric list!\n" + response.data);
+        });
+    };
+    var updateCriteria = function () {
+        var postData = Array();
+        if (session.key == "") { return; }
+        postData["session_key"] = session.key;
+        postData["isActive"] = "1";
+        var url = "/api/getCriteria.php";
+        php.post(postData, url, function (response) {
+            $scope.criteria = new Object();
+            $scope.criteria = angular.fromJson(response.data);
+        }, function (response) {
+            $("").notify("Failed to load criteria list!\n" + response.data);
+        });
+    };
+    $scope.firstUpper = function (word) {
+        if (typeof (word) !== "undefined") {
+            return (word.charAt(0).toUpperCase() + word.slice(1));
+        }
     };
 
     updateClasses();
     updateOutcomes();
+    updateRubrics();
+    updateCriteria();
 });

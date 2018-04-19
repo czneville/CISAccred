@@ -11,6 +11,7 @@ CISAccredApp.controller('loginController', function ($scope, $http, $location, a
             } else {
                 session.isAdmin = false;
             }
+            $.notify("Welcome!", "success");
             $location.path("/home");
         }, function () {
             $("#login-btn").notify("Login Failed!");

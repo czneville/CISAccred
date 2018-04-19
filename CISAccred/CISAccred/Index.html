@@ -28,7 +28,7 @@
 
 <body ng-controller="mainController" id="main">
     <div id="logo">
-            CISAccred
+            CISAccred&nbsp;<div style="display: inline;font-size:14px; font-family:sans-serif;"><i>/saɪ ˈseɪkrəd/&nbsp;&nbsp;--</i>  1. <i>adj.</i> Miserable, unbearable. "A CISAccred project."&nbsp;&nbsp;&nbsp;2. <i>n.</i> Insomnia. "Suffering from CISAccred."</div>
         <div style="float: right; font-size: 22px; margin-top: 12px; margin-right: 10px;">
             <span ng-bind="session.username"></span>
         </div>
@@ -39,22 +39,22 @@
         <div>
             <ul>
                 <li ng-click='$location.path("/");' ng-hide="session.isLoggedIn();">
-                    Login
+                    <span class="glyphicon glyphicon-lock"></span>&nbsp;Login
                 </li>
                 <li ng-click='$location.path("/home");' ng-hide="!session.isLoggedIn();">
-                    Home
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;Home
                 </li>
                 <li ng-click='$location.path("/student");' ng-hide="!session.isLoggedIn();">
-                    Student Records
+                    <span class="glyphicon glyphicon-pencil"></span>&nbsp;Student Records
                 </li>
                 <li ng-click='$location.path("/abet");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
-                    Add / Edit ABET Data
+                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Add / Edit ABET Data
                 </li>
                 <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
-                    User Management
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;User Management
                 </li>
                 <li class="logout-btn" ng-click='session.logout();' ng-hide="!session.isLoggedIn();">
-                    Logout
+                    <span class="glyphicon glyphicon-remove"></span>&nbsp;Logout
                 </li>
             </ul>
         </div>

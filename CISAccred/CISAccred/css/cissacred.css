@@ -20,7 +20,8 @@ nav#main-nav{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: hidden;    
+    box-shadow: 1px 1px 5px #000 inset;
 }
 
 #main-nav > div > ul > li{
@@ -38,6 +39,7 @@ nav#main-nav{
 }
 
 #main-nav > div > ul > li:hover, #main-nav > div > ul > li:active{
+    box-shadow: 1px 1px 5px #000 inset;
     background-color: #e68154;
 }
 
@@ -111,4 +113,52 @@ table.fancy-table >tbody>tr>td:nth-child(3)>a{
 
 table.fancy-table >tbody>tr>td:nth-child(4)>a{
     color: crimson;
+}
+
+div.rubric-presentation{
+    padding:10px;
+}
+
+table.criteria-table{
+    border-collapse:unset;
+    width: 100%;
+    padding: 10px;
+}
+
+table.criteria-table > tbody > tr > td {
+    border: 1px solid;
+}
+
+table.criteria-table > tbody > tr > td:nth-child(4) {
+    width: 55%;
+}
+
+table.criteria-table > tbody > tr > td:nth-child(1) > span{
+    color: green;
+}
+
+table.criteria-table > tbody > tr > td:nth-child(2) > span{
+    color: red;
+}
+
+
+table.criteria-table > tbody > tr > td:nth-child(8) > a{
+    color: rebeccapurple;
+}
+
+table.criteria-table > tbody > tr > td:nth-child(9) > a{
+    color: crimson;
+}
+
+table.criteria-table > tbody > tr:nth-child(2n+1){
+    background-color: #ddd;
+}
+
+table.criteria-table >tbody>tr>td>a, table.criteria-table >tbody>tr>td>span{
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+table.criteria-table >tbody>tr:last-child>td>a{
+    color: darkgreen;
 }
