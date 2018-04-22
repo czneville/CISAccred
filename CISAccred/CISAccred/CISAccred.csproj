@@ -90,6 +90,7 @@
     <Content Include="api\addClass.php" />
     <Content Include="api\getCriteria.php" />
     <Content Include="api\getRubric.php" />
+    <Content Include="api\getUser.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

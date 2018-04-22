@@ -1,21 +1,92 @@
-﻿<div >
-    <h3 style="margin-top: 0px; padding: 10px;">Outcomes:</h3>
+﻿{{message}}
+
+<br />
+
+Hide Add Modules: <input type="checkbox" ng-model="addUser">
+
+<br />
+
+Hide Edit Modules: <input type="checkbox" ng-model="editUser">
+
+<br /><br />
+
+<div ng-hide="addUser">
+
+    <p>
+        addUser
+    </p>
+
+    <!--Launch Modal-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUser">
+        Add User
+    </button>
+
+
+
+</div>
+
+<br /><br />
+
+<div ng-hide="editUser">
+    <p>
+        editUser
+    </p>
+
+</div>
+
+<!--Modals-->
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserLabel" adia-hiden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addUserLabel">Add User</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addUser-form">
+                    <form>
+                        User's First Name : <input type="text" class="form-control" placeholder="First Name" ng-model="p_fname" /><br />
+                        User's Last Name : <input type="text" class="form-control" placeholder="Last Name" C_SECTION" ng-model="p_lname" /><br />
+                        User's CWID : <input type="text" class="form-control" placeholder="CWID" ng-model="p_id" /><br />
+                        User's Username : <input type="text" class="form-control" placeholder="Username" ng-model="p_username" /><br />
+                        User's Password: <input type="password" class="form-control" placeholder="Password" ng-model="p_password" /><br />
+                        <input type="checkbox" name="amid" value="UserAdmin">This user has Admin privileges<br>
+                        <input id="userAdd" type="submit" class="btn btn-default" value="Add User" ng-click="addUser();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--
+
+<div id="abet-tab" ng-show="activeTab.active === 'class'">
+    <h3 style="margin-top: 0px; padding: 10px;">Classes:</h3>
     <table class="fancy-table">
         <tr>
-            <td><b>Outcome Name</b></td>
-            <td><b>Outcome Desc</b></td>
+            <td><b>Course Number</b></td>
+            <td><b>Course Title</b></td>
             <td></td>
             <td></td>
         </tr>
-        <tr ng-repeat="o in outcomes">
-            <td>{{o["OUT_NAME"]}}</td>
-            <td>{{o["OUT_DESC"]}}</td>
-            <td><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb = 'modify';outcome.name =o['OUT_NAME'];outcome.desc=o['OUT_DESC'];outcome.id=o['OUT_ID'];">Edit...</a></td>
-            <td><a ng-click="outcome.verb = 'delete';outcome.id=o['OUT_ID'];chooseOutcomeFunction();">Delete...</a></td>
+        <tr ng-repeat="c in classes">
+            <td>&nbsp;{{c["C_COURSE_NUM"]}}</td>
+            <td>&nbsp;{{c["C_COURSE_TITLE"]}}</td>
+            <td><a data-toggle="modal" data-target="#addClass" ng-click="class.verb = 'modify';class.courseNumber = c['C_COURSE_NUM'];class.title = c['C_COURSE_TITLE'];class.id=c['C_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a ng-click="class.verb = 'delete';class.id=c['C_ID'];chooseClassFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
-            <td colspan="4"><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb='add';outcome.name='';outcome.desc='';">Add new class...</a></td>
+            <td colspan="4"><a data-toggle="modal" data-target="#addClass" ng-click="class.verb='add';class.courseNumber='';class.title='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new class...</a></td>
         </tr>
     </table>
     <br /><br />
 </div>
+
+-->
