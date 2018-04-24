@@ -18,11 +18,39 @@
             <td>&nbsp;{{u["P_USERNAME"]}}</td>
             <td>&nbsp;{{u["P_PASSWORD"]}}</td>
             <td>&nbsp;{{u["P_ISADMIN"]}}</td>
-            <td><a>Edit...</a></td>
+            <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.id=u['P_ID'];user.fname=u['P_PFNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
             <td><a>Delete...</a></td>
         </tr>
         <tr>
-            <td colspan="8"><a>Add new user...</a></td>
+            <td colspan="8"><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='add';user.id='';user.fname='';user.lname='';user.username='';user.password='';user.isadmin='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new user...</a></td>
         </tr>
     </table>
+</div>
+
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="addUserLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addUserLabel">{{firstUpper(class.verb)}} User</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addUser-form">
+                    <form>
+                        User ID: <input type="text" class="form-control" placeholder="1000" ng-model="user.id" /><br />
+                        First Name: <input type="text" class="form-control" placeholder="John" ng-model="user.fname" /><br />
+                        Last Name: <input type="text" class="form-control" placeholder="Smith" ng-model="user.lname" /><br />
+                        Username: <input type="text" class="form-control" placeholder="smithj" ng-model="user.username" /><br />
+                        Password: <input type="password" class="form-control" placeholder="Password" ng-model="user.password" /><br />
+                        Administrator: <input type="text" class="form-control" placeholder="1" ng-model="user.isadmin" /><br />
+                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseClassFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
