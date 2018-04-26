@@ -38,7 +38,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["title"] = $scope.class.title;
         postData["session_key"] = session.key;
 
-        var url = "/api/addClass.php";
+        var url = "api/addClass.php";
 
         php.post(postData, url, function () {
             $().notify("Class added.", "success");
@@ -57,7 +57,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["title"] = $scope.class.title;
         postData["session_key"] = session.key;
 
-        var url = "/api/addClass.php";
+        var url = "api/addClass.php";
 
         php.post(postData, url, function () {
             $().notify("Class modified.", "success");
@@ -73,7 +73,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["id"] = $scope.class.id;
         postData["session_key"] = session.key;
 
-        var url = "/api/addClass.php";
+        var url = "api/addClass.php";
 
         php.post(postData, url, function () {
             $().notify("Class Deleted.", "success");
@@ -105,7 +105,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["assessment"] = $scope.rubric.assessment;
         postData["session_key"] = session.key;
 
-        var url = "/api/addRubric.php";
+        var url = "api/addRubric.php";
 
         php.post(postData, url, function () {
             $("rubricAdd").notify("Rubric added.", "success");
@@ -147,7 +147,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["outcome_desc"] = $scope.outcome.desc;
         postData["session_key"] = session.key;
 
-        var url = "/api/addOutcome.php";
+        var url = "api/addOutcome.php";
 
         php.post(postData, url, function () {
             $("#outcomeAdd").notify("Outcome added.", "success");
@@ -164,7 +164,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["outcome_desc"] = $scope.outcome.desc;
         postData["session_key"] = session.key;
 
-        var url = "/api/addOutcome.php";
+        var url = "api/addOutcome.php";
 
         php.post(postData, url, function () {
             $().notify("Class modified.", "success");
@@ -181,7 +181,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["id"] = $scope.outcome.id;
         postData["session_key"] = session.key;
 
-        var url = "/api/addOutcome.php";
+        var url = "api/addOutcome.php";
 
         php.post(postData, url, function () {
             $().notify("Class Deleted.", "success");
@@ -211,7 +211,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["name"] = $scope.rubric.name;
         postData["session_key"] = session.key;
 
-        var url = "/api/addRubric.php";
+        var url = "api/addRubric.php";
 
         php.post(postData, url, function () {
             $("#outcomeAdd").notify("Rubric added.", "success");
@@ -228,7 +228,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["id"] = $scope.rubric.id;
         postData["session_key"] = session.key;
 
-        var url = "/api/addRubric.php";
+        var url = "api/addRubric.php";
 
         php.post(postData, url, function () {
             $().notify("Rubric modified.", "success");
@@ -243,7 +243,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["id"] = $scope.rubric.id;
         postData["session_key"] = session.key;
 
-        var url = "/api/addRubric.php";
+        var url = "api/addRubric.php";
 
         php.post(postData, url, function () {
             $().notify("Rubric Deleted.", "success");
@@ -281,7 +281,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["CRIT_MAX"] = $scope.criterion.max;
         postData["CRIT_BENCHMARK"] = $scope.criterion.benchmark;
 
-        var url = "/api/addCriteria.php";
+        var url = "api/addCriteria.php";
 
         php.post(postData, url, function () {
             $("#criteriaAdd").notify("Criteria added.", "success");
@@ -300,7 +300,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["CRIT_MAX"] = $scope.criterion.max;
         postData["CRIT_BENCHMARK"] = $scope.criterion.benchmark;
 
-        var url = "/api/addCriteria.php";
+        var url = "api/addCriteria.php";
 
         php.post(postData, url, function () {
             $().notify("Criteria modified.", "success");
@@ -315,7 +315,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["id"] = $scope.criterion.id;
         postData["session_key"] = session.key;
 
-        var url = "/api/addCriteria.php";
+        var url = "api/addCriteria.php";
 
         php.post(postData, url, function () {
             $().notify("Criteria Deleted.", "success");
@@ -331,7 +331,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["R_ID"] = $scope.selectedRubric;
         postData["session_key"] = session.key;
 
-        var url = "/api/addCriteria.php";
+        var url = "api/addCriteria.php";
 
         php.post(postData, url, function () {
             updateCriteria();
@@ -346,7 +346,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["R_ID"] = $scope.selectedRubric;
         postData["session_key"] = session.key;
 
-        var url = "/api/addCriteria.php";
+        var url = "api/addCriteria.php";
 
         php.post(postData, url, function () {
             updateCriteria();
@@ -360,7 +360,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         if (session.key == "") { return; }
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
-        var url = "/api/getClass.php";
+        var url = "api/getClass.php";
         php.post(postData, url, function (response) {
             $scope.classes = new Object();
             $scope.classes = angular.fromJson(response.data);
@@ -373,7 +373,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         var postData = Array();
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
-        var url = "/api/getRubric.php";
+        var url = "api/getRubric.php";
         php.post(postData, url, function (response) {
             $scope.rubrics = new Object();
             $scope.rubrics = angular.fromJson(response.data);
@@ -387,7 +387,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         if (session.key == "") { return; }
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
-        var url = "/api/getOutcome.php";
+        var url = "api/getOutcome.php";
         php.post(postData, url, function (response) {
             $scope.outcomes = new Object();
             $scope.outcomes = angular.fromJson(response.data);
@@ -400,7 +400,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         if (session.key == "") { return; }
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
-        var url = "/api/getRubric.php";
+        var url = "api/getRubric.php";
         php.post(postData, url, function (response) {
             $scope.rubrics = new Object();
             $scope.rubrics = angular.fromJson(response.data);
@@ -413,7 +413,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         if (session.key == "") { return; }
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
-        var url = "/api/getCriteria.php";
+        var url = "api/getCriteria.php";
         php.post(postData, url, function (response) {
             $scope.criteria = new Object();
             $scope.criteria = angular.fromJson(response.data);
