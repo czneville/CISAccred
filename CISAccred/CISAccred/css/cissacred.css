@@ -76,6 +76,13 @@ div#abet-tab {
     background: white;
 }
 
+div#user-tab {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+
 table.fancy-table{
     border-collapse:unset;
     width: 100%;

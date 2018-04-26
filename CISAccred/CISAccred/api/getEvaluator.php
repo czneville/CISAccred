@@ -12,7 +12,7 @@
 		exit();
 	};
 	
-	$query = executeQuery("SELECT * FROM CIS_PROFESSOR ORDER BY P_ID");
+	$query = executeQuery("SELECT * FROM CIS_EVALUATOR ORDER BY EVAL_ID");
 	if($query)
 	{
 		echo(json_encode($query));

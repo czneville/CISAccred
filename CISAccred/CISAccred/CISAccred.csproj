@@ -78,9 +78,8 @@
     <Content Include="angular\php.service.js" />
     <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
-    <Content Include="angular\testing.controller.js" />
     <Content Include="angular\user.controller.js" />
-    <Content Include="api\addUser.php" />
+    <Content Include="api\addEvaluator.php" />
     <Content Include="api\addTask.php" />
     <Content Include="api\addScoreset.php" />
     <Content Include="api\addRubric.php" />
@@ -91,6 +90,8 @@
     <Content Include="api\getCriteria.php" />
     <Content Include="api\getRubric.php" />
     <Content Include="api\getUser.php" />
+    <Content Include="api\getEvaluator.php" />
+    <Content Include="api\addUser.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -122,7 +123,6 @@
     <Content Include="pages\abet2.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\student.html" />
-    <Content Include="pages\testing.html" />
     <Content Include="pages\user.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />

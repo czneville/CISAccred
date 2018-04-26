@@ -1,13 +1,16 @@
-﻿<div id="">
+﻿<ul class="nav nav-tabs">
+    <li id="user" class="active" role="presentation" ng-click="activeTab.set('user')"><a>Users</a></li>
+    <li id="evaluator" role="presentation" ng-click="activeTab.set('evaluator')"><a>Evaluators</a></li>
+</ul>
+
+<div id="user-tab" ng-show="activeTab.active === 'user'">
     <h3 style="margin-top: 0px; padding: 10px">Users:</h3>
     <table class="fancy-table">
         <tr>
-            <td><b>p_id</b></td>
-            <td><b>p_fname</b></td>
-            <td><b>p_lname</b></td>
-            <td><b>p_username</b></td>
-            <td><b>p_password</b></td>
-            <td><b>p_isadmin</b></td>
+            <td><b>User ID</b></td>
+            <td><b>First Name</b></td>
+            <td><b>Last Name</b></td>
+            <td><b>System Username</b></td>
             <td></td>
             <td></td>
         </tr>
@@ -16,13 +19,32 @@
             <td>&nbsp;{{u["P_FNAME"]}}</td>
             <td>&nbsp;{{u["P_LNAME"]}}</td>
             <td>&nbsp;{{u["P_USERNAME"]}}</td>
-            <td>&nbsp;{{u["P_PASSWORD"]}}</td>
-            <td>&nbsp;{{u["P_ISADMIN"]}}</td>
             <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.id=u['P_ID'];user.fname=u['P_PFNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
             <td><a>Delete...</a></td>
         </tr>
         <tr>
-            <td colspan="8"><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='add';user.id='';user.fname='';user.lname='';user.username='';user.password='';user.isadmin='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new user...</a></td>
+            <td colspan="6"><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='add';user.id='';user.fname='';user.lname='';user.username='';user.password='';user.isadmin='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new user...</a></td>
+        </tr>
+    </table>
+</div>
+
+<div id="user-tab" ng-show="activeTab.active === 'evaluator'">
+    <h3 style="margin-top: 0px; padding: 10px">Evaluators:</h3>
+    <table class="fancy-table">
+        <tr>
+            <td><b>Evaluator ID</b></td>
+            <td><b>Evaluator Name</b></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="e in evaluators">
+            <td>&nbsp;{{e["EVAL_ID"]}}</td>
+            <td>&nbsp;{{e["EVAL_NAME"]}}</td>
+            <td><a data-toggle="modal" data-target="#addEvaluator" ng-click="evaluator.verb='modify';evaluator.id=e['EVAL_ID'];eval.name=e['EVAL_NAME'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a>Delete...</a></td>
+        </tr>
+        <tr>
+            <td colspan="4"><a data-toggle="modal" data-target="#addEvaluator" ng-click="evaluator.verb='add';evaluator.id='';evaluator.name='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new Evaluator...</a></td>
         </tr>
     </table>
 </div>
@@ -31,7 +53,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="addUserLabel">{{firstUpper(class.verb)}} User</h3>
+                <h3 class="modal-title" id="addUserLabel">{{firstUpper(user.verb)}} User</h3>
             </div>
             <div class="modal-body">
                 <div id="addUser-form">
@@ -42,7 +64,31 @@
                         Username: <input type="text" class="form-control" placeholder="smithj" ng-model="user.username" /><br />
                         Password: <input type="password" class="form-control" placeholder="Password" ng-model="user.password" /><br />
                         Administrator: <input type="text" class="form-control" placeholder="1" ng-model="user.isadmin" /><br />
-                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseClassFunction();" /><br /><br />
+                        <input id="userAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseUserFunction();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addEvaluator" tabindex="-1" role="dialog" aria-labelledby="addEvaluatorLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addEvaluatorLabel">{{firstUpper(evaluator.verb)}} Evaluator</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addEvaluator-form">
+                    <form>
+                        Evaluator ID: <input type="text" class="form-control" placeholder="1000" ng-model="evaluator.id" /><br />
+                        Name: <input type="text" class="form-control" placeholder="John Smith" ng-model="evaluator.name" /><br />
+                        <input id="evaluatorAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseEvaluatorFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
