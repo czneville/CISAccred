@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	$username = $_POST['username'];
 	$password = $_POST['password'];
   include 'oracleQuery.php';
@@ -9,7 +9,7 @@
     exit;
   }
   $p_id = $query[0]['P_ID'];
-  $p_name = $query[0]["P_FNAME"];
+  $p_name = $query[0]["P_FNAME"]." ";
   $p_name = $p_name . $query[0]["P_LNAME"];
   $p_isadmin = $query[0]["P_ISADMIN"];
   $session_key = uniqid();

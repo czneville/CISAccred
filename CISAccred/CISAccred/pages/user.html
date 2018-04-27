@@ -19,7 +19,7 @@
             <td>&nbsp;{{u["P_FNAME"]}}</td>
             <td>&nbsp;{{u["P_LNAME"]}}</td>
             <td>&nbsp;{{u["P_USERNAME"]}}</td>
-            <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.id=u['P_ID'];user.fname=u['P_PFNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.id=u['P_ID'];user.fname=u['P_FNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
             <td><a>Delete...</a></td>
         </tr>
         <tr>
@@ -40,7 +40,7 @@
         <tr ng-repeat="e in evaluators">
             <td>&nbsp;{{e["EVAL_ID"]}}</td>
             <td>&nbsp;{{e["EVAL_NAME"]}}</td>
-            <td><a data-toggle="modal" data-target="#addEvaluator" ng-click="evaluator.verb='modify';evaluator.id=e['EVAL_ID'];eval.name=e['EVAL_NAME'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a data-toggle="modal" data-target="#addEvaluator" ng-click="evaluator.verb='modify';evaluator.id=e['EVAL_ID'];evaluator.name=e['EVAL_NAME'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
             <td><a>Delete...</a></td>
         </tr>
         <tr>
