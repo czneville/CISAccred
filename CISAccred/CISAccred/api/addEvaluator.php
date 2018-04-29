@@ -46,4 +46,21 @@
 			exit();
 		}
 	}
+
+	if($verb == "delete")
+	{
+		$eval_id = $_POST['id'];
+		
+		$query = executeQuery("UPDATE CIS_EVALUATOR SET EVAL_ISACTIVE = 0 WHERE EVAL_ID = ".$eval_id,false);
+
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+			header("HTTP/1.1 500 Internal Server Error");
+			exit();
+		}
+	}
 ?>
