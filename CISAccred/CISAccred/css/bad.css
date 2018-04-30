@@ -1,0 +1,244 @@
+﻿body#main {
+    background-color: #f1f1f1;
+}
+
+div#logo {
+    font-size: 32px;
+    font-family: Futura;
+    background-color: #e6e6e6;
+}
+
+@font-face {
+    font-family: Futura;
+    src: url(../Content/Futura.otf);
+}
+
+nav#main-nav {
+    background-color: #2a579a;
+}
+
+#main-nav > div > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 1px 1px 5px #000 inset;
+}
+
+    #main-nav > div > ul > li {
+        float: left;
+        cursor: pointer;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 50px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px;
+        font-size: 20px;
+        font-weight: bolder;
+        color: white;
+    }
+
+        #main-nav > div > ul > li:hover, #main-nav > div > ul > li:active {
+            box-shadow: 1px 1px 5px #000 inset;
+            background-color: #a6a6a6;
+            color: #ffffff;
+        }
+
+#main-nav > div > ul, #main-nav > div, #main-nav {
+    padding: 0px;
+}
+
+div#content-well {
+    padding: 5%;
+    margin: 5%;
+    margin-top: 3%;
+}
+
+input#login-btn {
+    background-color: #2a579a;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
+div#login-form {
+    margin: auto;
+    width: 300px;
+}
+
+#main-nav > div > ul > li.logout-btn {
+    float: right;
+}
+
+div#abet-tab {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+
+div#user-tab {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+
+div#help-tab {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    background: white;
+}
+
+table.fancy-table {
+    border-collapse: unset;
+    width: 100%;
+    padding: 10px;
+}
+
+    table.fancy-table > tbody > tr > td {
+        border: 1px solid;
+    }
+
+        table.fancy-table > tbody > tr > td:nth-child(1) {
+            width: 10%;
+        }
+
+        table.fancy-table > tbody > tr > td:nth-child(2) {
+            width: 70%;
+        }
+
+    table.fancy-table > tbody > tr:nth-child(2n+1) {
+        background-color: #ddd;
+    }
+
+    table.fancy-table > tbody > tr > td > a {
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
+    table.fancy-table > tbody > tr:last-child > td > a {
+        color: darkgreen;
+    }
+
+    table.fancy-table > tbody > tr > td:nth-child(3) > a {
+        color: rebeccapurple;
+    }
+
+    table.fancy-table > tbody > tr > td:nth-child(4) > a {
+        color: crimson;
+    }
+
+div.rubric-presentation {
+    padding: 10px;
+}
+
+table.criteria-table {
+    border-collapse: unset;
+    width: 100%;
+    padding: 10px;
+}
+
+    table.criteria-table > tbody > tr > td {
+        border: 1px solid;
+    }
+
+        table.criteria-table > tbody > tr > td:nth-child(4) {
+            width: 55%;
+        }
+
+        table.criteria-table > tbody > tr > td:nth-child(1) > span {
+            color: green;
+        }
+
+        table.criteria-table > tbody > tr > td:nth-child(2) > span {
+            color: red;
+        }
+
+
+        table.criteria-table > tbody > tr > td:nth-child(8) > a {
+            color: rebeccapurple;
+            width: 5%;
+        }
+
+        table.criteria-table > tbody > tr > td:nth-child(9) > a {
+            color: crimson;
+            width: 5%;
+        }
+
+    table.criteria-table > tbody > tr:nth-child(2n+1) {
+        background-color: #ddd;
+    }
+
+    table.criteria-table > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
+    table.criteria-table > tbody > tr:last-child > td > a {
+        color: darkgreen;
+    }
+
+table.user-table {
+    border-collapse: unset;
+    width: 100%;
+    padding: 10px;
+}
+
+    table.user-table > tbody > tr > td {
+    border: 1px solid;
+    }
+
+    table.user-table > tbody > tr > td:nth-child(5) > a {
+        color: rebeccapurple;
+    }
+
+    table.user-table > tbody > tr > td:nth-child(6) > a {
+        color: crimson;
+    }
+
+    table.user-table > tbody > tr:nth-child(2n+1) {
+    background-color: #ddd;
+    }
+
+    table.user-table > tbody > tr > td > a, table.user-table > tbody > tr > td > span {
+    cursor: pointer;
+    font-weight: bolder;
+    }
+
+    table.user-table > tbody > tr:last-child > td > a {
+    color: darkgreen;
+    }
+
+table.evaluator-table {
+    border-collapse: unset;
+    width: 100%;
+    padding: 10px;
+}
+
+    table.evaluator-table > tbody > tr > td {
+    border: 1px solid;
+    }
+    
+    table.evaluator-table > tbody > tr > td:nth-child(3) > a {
+        color: rebeccapurple;
+    }
+
+   table.evaluator-table > tbody > tr > td:nth-child(4) > a {
+        color: crimson;
+    }
+
+    table.evaluator-table > tbody > tr:nth-child(2n+1) {
+        background-color: #ddd;
+    }
+
+    table.evaluator-table > tbody > tr > td > a, table.user-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
+    table.evaluator-table > tbody > tr:last-child > td > a {
+        color: darkgreen;
+    }

@@ -5,7 +5,7 @@
 
 <div id="user-tab" ng-show="activeTab.active === 'user'">
     <h3 style="margin-top: 0px; padding: 10px">Users:</h3>
-    <table class="fancy-table">
+    <table class="user-table">
         <tr>
             <td><b>User ID</b></td>
             <td><b>First Name</b></td>
@@ -20,7 +20,7 @@
             <td>&nbsp;{{u["P_LNAME"]}}</td>
             <td>&nbsp;{{u["P_USERNAME"]}}</td>
             <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.id=u['P_ID'];user.fname=u['P_FNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
-            <td><a>Delete...</a></td>
+            <td><a data-toggle="modal" data-target="#deleteUser" ng-click="user.verb='delete';user.id=u['P_ID'];user.fname=u['P_FNAME'];user.lname=u['P_LNAME'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
             <td colspan="6"><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='add';user.id='';user.fname='';user.lname='';user.username='';user.password='';user.isadmin='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new user...</a></td>
@@ -30,7 +30,7 @@
 
 <div id="user-tab" ng-show="activeTab.active === 'evaluator'">
     <h3 style="margin-top: 0px; padding: 10px">Evaluators:</h3>
-    <table class="fancy-table">
+    <table class="evaluator-table">
         <tr>
             <td><b>Evaluator ID</b></td>
             <td><b>Evaluator Name</b></td>
@@ -41,7 +41,7 @@
             <td>&nbsp;{{e["EVAL_ID"]}}</td>
             <td>&nbsp;{{e["EVAL_NAME"]}}</td>
             <td><a data-toggle="modal" data-target="#addEvaluator" ng-click="evaluator.verb='modify';evaluator.id=e['EVAL_ID'];evaluator.name=e['EVAL_NAME'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
-            <td><a>Delete...</a></td>
+            <td><a data-toggle="modal" data-target="#deleteEvaluator" ng-click="evaluator.verb='delete'; evaluator.id=e['EVAL_ID']; evaluator.name=e['EVAL_NAME'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
             <td colspan="4"><a data-toggle="modal" data-target="#addEvaluator" ng-click="evaluator.verb='add';evaluator.id='';evaluator.name='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new Evaluator...</a></td>
@@ -95,6 +95,56 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteUserLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="deleteUserLabel">{{firstUpper(user.verb)}} Confirm?</h3>
+            </div>
+            <div class="modal-body">
+                <div id="deleteUser-form">
+                    Are you sure you would like to delete the following user?
+                    <br />
+                    {{user.fname}} {{user.lname}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button"class="btn btn-primary" ng-click="chooseUserFunction();" data-dismiss="modal">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteEvaluator" tabindex="-1" role="dialog" aria-labelledby="deleteEvaluatorLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="deleteEvaluatorLabel">{{firstUpper(evaluator.verb)}} Confirm?</h3>
+            </div>
+            <div class="modal-body">
+                <div id="deleteEvaluator-form">
+                    Are you sure you would like to delete the following evaluator?
+                    <br />
+                    {{evaluator.name}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="chooseEvaluatorFunction();" data-dismiss="modal">
+                    Confirm
                 </button>
             </div>
         </div>

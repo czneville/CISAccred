@@ -16,7 +16,7 @@
 		$eval_id = $_POST['id'];
 		$eval_name = $_POST['name'];
 		
-		$query = executeQuery("INSERT INTO CIS_EVALUATOR VALUES(".$eval_id.", '".$eval_name."')", false);
+		$query = executeQuery("INSERT INTO CIS_EVALUATOR VALUES(".$eval_id.", '".$eval_name."', 1)", false);
 		
 		if($query)
 		{
