@@ -128,12 +128,27 @@
                     <option ng-repeat="r in rubrics" value='{{r["R_ID"]}}'>{{r["R_NAME"]}}</option>
                 </select>
                 <br />
-                <b>Criteria to edit:</b>
-                <select class="form-control" ng-model="selectedCriteria">
-                    <option ng-repeat="c in criteria" value='{{c["CRITERIA_LINE"]}}'>{{c["CRIT_TASK_NAME"]}}</option>
+                <b ng-show="selectedRubric != 'undefined'">Criteria to edit:</b>
+                <select class="form-control" ng-show="selectedRubric != 'undefined'" ng-model="selectedCriteria" ng-change="updateOutcomeCriteria();">
+                    <option ng-repeat="c in criteria" value='{{c["CRIT_ID"]}}' ng-if="c['R_ID'] == selectedRubric">{{c["CRIT_TASK_DESC"]}}</option>
                 </select>
-                <div ng-show="selectedRubric != 'undefined'">
-                    A RUBRIC IS SELECTED!
+                <div ng-show="(selectedCriteria != 'undefined')">
+                    <br />
+                    <table class="fancy-table">
+                        <tr>
+                            <td><b>Outcome Name</b></td>
+                            <td><b>Outcome Desc</b></td>
+                            <td></td>
+                        </tr>
+                        <tr ng-repeat="o in outcomeCriteria">
+                            <td>{{o["OUT_NAME"]}}</td>
+                            <td>{{o["OUT_DESC"]}}</td>
+                            <td><a ng-click="outcomeCriterion.id = o['RELATIONSHIP_ID'];deleteOutcomeCriteria();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><a data-toggle="modal" data-target="#addOutcomeCriteria" >Add new mapping...</a></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -351,6 +366,34 @@
                             <option ng-repeat="c in classes" value='{{c["C_ID"]}}'>{{c["C_COURSE_TITLE"]}}</option>
                         </select><br />
                         <input id="rubricClassAdd" type="submit" class="btn btn-default" value="Add" ng-click="addRubricClass();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addOutcomeCriteria" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addClassLabel">Map Rubric</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        <br />
+                        Outcome to map to:
+                        <br />
+                        <select class="form-control" ng-model="outcomeCriterion.outcome">
+                            <option ng-repeat="o in outcomes" value='{{o["OUT_ID"]}}'>{{o["OUT_NAME"]}}</option>
+                        </select><br />
+                        <input id="rubricClassAdd" type="submit" class="btn btn-default" value="Add" ng-click="addOutcomeCriteria();" /><br /><br />
                     </form>
                 </div>
             </div>

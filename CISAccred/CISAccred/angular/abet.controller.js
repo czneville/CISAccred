@@ -3,6 +3,7 @@
 CISAccredApp.controller('abetController', function ($scope, session, php) {
     session.showLoginForm();
     $scope.selectedRubric = 'undefined';
+    $scope.selectedCriteria = 'undefined';
     $scope.activeTab = new Object();
     $scope.activeTab.active = 'class';
     $scope.activeTab.set = function (tab) {
@@ -114,7 +115,6 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
             $("rubricAdd").notify("Add rubric failed!\n" + response.data);
         });
     }
-
     $scope.modifyRubric = function () {
         var postData = Array();
         postData["verb"] = 'add';
@@ -123,7 +123,6 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         postData["assessment"] = $scope.rubric.assessment;
         postData["session_key"] = session.key;
     }
-
     $scope.deleteRubric = function () {
 
     }
@@ -354,6 +353,16 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
             $().notify("Move criteria failed!\n" + response.data);
         });
     };
+    $scope.rubricCriteria = new Object();
+    $scope.selectedRubricCriteria = function () {
+        var result = Array();
+        for (var c in $scope.criteria) {
+            if ($scope.criteria[c]["R_ID"] == $scope.selectedRubric) {
+                result += $scope.criteria[c];
+            }
+        }
+        $scope.rubricCriteria = result;
+    };
 
     $scope.rubricClass = new Object();
     $scope.addRubricClass = function () {
@@ -397,6 +406,54 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
 
         php.post(postData, url, function () {
             $scope.updateRubricClasses();
+        }, function () {
+            $().notify("Delete failed!", 'error')
+        })
+    };
+
+    $scope.outcomeCriteria = new Object();
+    $scope.outcomeCriterion = new Object();
+    $scope.updateOutcomeCriteria = function () {
+        var postData = Array();
+        postData["session_key"] = session.key;
+        postData["isActive"] = "1";
+        postData["verb"] = "get";
+        postData["criteria"] = $scope.selectedCriteria;
+        var url = "api/criteriaOutcome.php";
+        php.post(postData, url, function (response) {
+            $scope.outcomeCriteria = new Object();
+            $scope.outcomeCriteria = angular.fromJson(response.data);
+        }, function (response) {
+
+        });
+    };
+    $scope.addOutcomeCriteria = function () {
+        var postData = Array();
+        postData["verb"] = 'add';
+        postData["session_key"] = session.key;
+        postData["criteria"] = $scope.selectedCriteria;
+        postData["outcome"] = $scope.outcomeCriterion.outcome;
+
+        var url = 'api/criteriaOutcome.php';
+
+        php.post(postData, url, function () {
+            $().notify('Mapping added!');
+            $scope.updateOutcomeCriteria();
+            $("#addRubricClass > div.modal-dialog > div > div.modal-footer > button").click();
+        }, function (response) {
+            $('#rubricClassAdd').notify('Failed! \n' + response.data, 'error');
+        })
+    };
+    $scope.deleteOutcomeCriteria = function () {
+        var postData = Array();
+        postData["verb"] = 'delete';
+        postData["session_key"] = session.key;
+        postData["id"] = $scope.outcomeCriterion.id;
+
+        var url = 'api/criteriaOutcome.php';
+
+        php.post(postData, url, function () {
+            $scope.updateOutcomeCriteria();
         }, function () {
             $().notify("Delete failed!", 'error')
         })

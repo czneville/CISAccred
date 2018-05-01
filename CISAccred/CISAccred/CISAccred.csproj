@@ -89,6 +89,7 @@
     <Content Include="api\addObjective.php" />
     <Content Include="api\addCriteria.php" />
     <Content Include="api\addClass.php" />
+    <Content Include="api\criteriaOutcome.php" />
     <Content Include="api\getCriteria.php" />
     <Content Include="api\getRubric.php" />
     <Content Include="api\getUser.php" />
