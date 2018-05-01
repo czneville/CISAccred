@@ -28,9 +28,9 @@ CISAccredApp.config(function ($routeProvider) {
             controller: 'inactiveController'
         })
 
-        .when('/help', {
-            templateUrl: 'pages/help.html',
-            controller: 'helpController'
+        .when('/password', {
+            templateUrl: 'pages/password.html',
+            controller: 'passwordController'
         })
 
 });

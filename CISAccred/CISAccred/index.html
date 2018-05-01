@@ -23,8 +23,8 @@
     <script src="angular/student.controller.js"></script>
     <script src="angular/abet.controller.js"></script>
     <script src="angular/user.controller.js"></script>
-    <script src="angular/help.controller.js"></script>
     <script src="angular/inactive.controller.js"></script>
+    <script src="angular/password.controller.js"></script>
     
     <script src="scripts/notify.min.js"></script>
     
@@ -63,8 +63,8 @@
                 <li ng-click='$location.path("/inactive");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-eye-close"></span>&nbsp;Inactive Records
                 </li>
-                <li ng-click='$location.path("/help");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
-                    <span class="glyphicon glyphicon-question-sign"></span>&nbsp;Help
+                <li ng-click='$location.path("/password");' ng-hide="(!session.isLoggedIn()) || (session.isAdmin)">
+                    <span class="glyphicon glyphicon-edit"></span>&nbsp;Change Password
                 </li>
                 <li class="logout-btn" ng-click='session.logout();' ng-hide="!session.isLoggedIn();">
                     <span class="glyphicon glyphicon-remove"></span>&nbsp;Logout

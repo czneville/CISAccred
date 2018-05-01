@@ -62,7 +62,19 @@ input#login-btn {
     width: 100%;
 }
 
+input#password-btn {
+    background-color: #2a579a;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
 div#login-form {
+    margin: auto;
+    width: 300px;
+}
+
+div#password-form {
     margin: auto;
     width: 300px;
 }
