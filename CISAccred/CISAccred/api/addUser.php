@@ -4,6 +4,7 @@
 	$verb = $_POST["verb"];
 	$sessionkey = $_POST['session_key'];
 	$session = verifySession($sessionkey);
+
 	if(!$session)
 	{
 	    header("HTTP/1.1 500 Internal Server Error");
@@ -13,14 +14,23 @@
   
 	if($verb == "add")
 	{
-		$p_id = $_POST['id'];
 		$p_fname = $_POST['fname'];
 		$p_lname = $_POST['lname'];
 		$p_username = $_POST['username'];
 		$p_password = $_POST['password'];
 		$p_isadmin = $_POST['isadmin'];
 
-		$query = executeQuery("INSERT INTO CIS_PROFESSOR VALUES(".$p_id.", '".$p_fname."', '".$p_lname."', '".$p_username."', '".$p_password."', ".$p_isadmin.", 1)", false);
+		$maxId = executeQuery("SELECT MAX(P_ID) FROM CIS_PROFESSOR", true)[0]["MAX(P_ID)"];
+		if(!isset($maxId))
+		{
+		$maxId=1000;
+		}
+		else
+		{
+		$maxId++;
+		}
+
+		$query = executeQuery("INSERT INTO CIS_PROFESSOR VALUES(".$maxId.", '".$p_fname."', '".$p_lname."', '".$p_username."', '".$p_password."', ".$p_isadmin.", 1)", false);
 		
 		if($query)
 		{

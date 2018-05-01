@@ -12,7 +12,7 @@
   $p_name = $query[0]["P_FNAME"]." ";
   $p_name = $p_name . $query[0]["P_LNAME"];
   $p_isadmin = $query[0]["P_ISADMIN"];
-  $session_key = uniqid();
+  $session_key = md5(random_bytes(25));
   $json_result["p_id"] = $p_id;
   $json_result["session_key"] = $session_key;
   $json_result["p_name"] = $p_name;

@@ -94,6 +94,11 @@
     <Content Include="api\getUser.php" />
     <Content Include="api\getEvaluator.php" />
     <Content Include="api\addUser.php" />
+    <Content Include="api\inactiveClass.php" />
+    <Content Include="api\inactiveRubric.php" />
+    <Content Include="api\inactiveOutcome.php" />
+    <Content Include="api\inactiveUser.php" />
+    <Content Include="api\inactiveEvaluator.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -102,6 +107,7 @@
     <Content Include="css\bad.css" />
     <Content Include="css\cissacred.css" />
     <Content Include="css\good.css" />
+    <Content Include="favicon.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="api\phpversion.php">

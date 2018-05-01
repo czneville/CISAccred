@@ -1,10 +1,10 @@
 ﻿<?php
 	include 'oracleQuery.php';
-  include 'verifySessionKey.php';
-  $verb = $_POST["verb"];
-  $sessionkey = $_POST['session_key'];
-  $session = verifySession($sessionkey);
-  if(!$session){
+	include 'verifySessionKey.php';
+	$verb = $_POST["verb"];
+	$sessionkey = $_POST['session_key'];
+	$session = verifySession($sessionkey);
+	if(!$session){
     header("HTTP/1.1 500 Internal Server Error");
     echo("Invalid Session Key! Login again please!");
     exit();
