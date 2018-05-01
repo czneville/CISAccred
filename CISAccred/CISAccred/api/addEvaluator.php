@@ -15,7 +15,7 @@
 	{
 		$eval_name = $_POST['name'];
 
-		$maxId = executeQuery("SELECT MAX(P_ID) FROM CIS_PROFESSOR", true)[0]["MAX(P_ID)"];
+		$maxId = executeQuery("SELECT MAX(EVAL_ID) FROM CIS_EVALUATOR", true)[0]["MAX(EVAL_ID)"];
 		if(!isset($maxId))
 		{
 		$maxId=1000;

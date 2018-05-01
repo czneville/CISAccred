@@ -62,7 +62,19 @@ input#login-btn {
     width: 100%;
 }
 
+input#password-btn {
+    background-color: #2a579a;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+}
+
 div#login-form {
+    margin: auto;
+    width: 300px;
+}
+
+div#password-form {
     margin: auto;
     width: 300px;
 }
@@ -264,7 +276,7 @@ table.class-table-inactive {
         width: 5%;
     }
 
-    table.class-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+    table.class-table-inactive > tbody > tr > td > a, table.class-table-inactive > tbody > tr > td > span {
         cursor: pointer;
         font-weight: bolder;
     }
@@ -289,7 +301,7 @@ table.rubric-table-inactive {
         width: 5%;
     }
 
-    table.rubric-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+    table.rubric-table-inactive > tbody > tr > td > a, table.rubric-table-inactive > tbody > tr > td > span {
         cursor: pointer;
         font-weight: bolder;
     }
@@ -315,7 +327,7 @@ table.outcome-table-inactive {
     width: 5%;
     }
 
-    table.outcome-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+    table.outcome-table-inactive > tbody > tr > td > a, table.outcome-table-inactive > tbody > tr > td > span {
         cursor: pointer;
         font-weight: bolder;
     }
@@ -340,7 +352,7 @@ table.user-table-inactive {
     width: 5%;
     }
 
-    table.user-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+    table.user-table-inactive > tbody > tr > td > a, table.user-table-inactive > tbody > tr > td > span {
         cursor: pointer;
         font-weight: bolder;
     }
@@ -365,7 +377,31 @@ table.evaluator-table-inactive {
         width: 5%;
     }
 
-    table.evaluator-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+    table.evaluator-table-inactive > tbody > tr > td > a, table.evaluator-table-inactive > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
+table.criteria-table-inactive {
+    border-collapse: unset;
+    width: 100%;
+    padding: 10px;
+}
+
+    table.criteria-table-inactive > tbody > tr > td {
+        border: 1px solid;
+    }
+
+    table.criteria-table-inactive > tbody > tr:nth-child(2n+1) {
+        background-color: #ddd;
+    }
+
+    table.criteria-table-inactive > tbody > tr > td:nth-child(3) > a {
+        color: rebeccapurple;
+        width: 5%;
+    }
+
+    table.criteria-table-inactive > tbody > tr > td > a, table.criteria-table-inactive > tbody > tr > td > span {
         cursor: pointer;
         font-weight: bolder;
     }

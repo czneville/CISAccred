@@ -72,11 +72,11 @@
     <Content Include="angular\abet.controller.js" />
     <Content Include="angular\authentication.service.js" />
     <Content Include="angular\cisaccredapp.module.js" />
-    <Content Include="angular\help.controller.js" />
     <Content Include="angular\home.controller.js" />
     <Content Include="angular\inactive.controller.js" />
     <Content Include="angular\login.controller.js" />
     <Content Include="angular\main.controller.js" />
+    <Content Include="angular\password.controller.js" />
     <Content Include="angular\php.service.js" />
     <Content Include="angular\session.service.js" />
     <Content Include="angular\student.controller.js" />
@@ -96,11 +96,13 @@
     <Content Include="api\getEvaluator.php" />
     <Content Include="api\addUser.php" />
     <Content Include="api\inactiveClass.php" />
+    <Content Include="api\inactiveCriteria.php" />
     <Content Include="api\inactiveRubric.php" />
     <Content Include="api\inactiveOutcome.php" />
     <Content Include="api\inactiveUser.php" />
     <Content Include="api\inactiveEvaluator.php" />
     <Content Include="api\rubricClass.php" />
+    <Content Include="api\changePassword.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -133,9 +135,9 @@
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\abet.html" />
     <Content Include="pages\abet2.html" />
-    <Content Include="pages\help.html" />
     <Content Include="pages\inactive.html" />
     <Content Include="pages\login.html" />
+    <Content Include="pages\password.html" />
     <Content Include="pages\student.html" />
     <Content Include="pages\user.html" />
     <Content Include="scripts\angular-mocks.js" />

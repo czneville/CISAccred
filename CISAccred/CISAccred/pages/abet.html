@@ -84,7 +84,7 @@
                             <td>&nbsp;{{c["CRIT_MAX"]}}</td>
                             <td>&nbsp;{{c["CRIT_BENCHMARK"]}}</td>
                             <td><a data-toggle="modal" data-target="#addCriteria" ng-click="criterion.verb = 'modify';criterion.desc = c['CRIT_TASK_DESC'];criterion.min = c['CRIT_MIN'];criterion.max=c['CRIT_MAX'];criterion.benchmark=c['CRIT_BENCHMARK'];criterion.id=c['CRIT_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
-                            <td><a ng-click="criterion.verb = 'delete';criterion.id=c['CRIT_ID'];chooseCriteriaFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+                            <td><a data-toggle="modal" data-target="#deleteCriteria" ng-click="criterion.verb = 'delete';criterion.id=c['CRIT_ID'];criterion.desc = c['CRIT_TASK_DESC'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
                         </tr>
                         <tr>
                             <td colspan="9"><a data-toggle="modal" data-target="#addCriteria" ng-click="criterion.desc = '';criterion.min = '';criterion.max='';criterion.benchmark=''; criterion.verb='add';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new criteria...</a></td>
@@ -348,6 +348,32 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="deleteCriteria" tabindex="-1" role="dialog" aria-labelledby="deleteCriteriaLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="deleteCriteriaLabel">{{firstUpper(criteria.verb)}} Confirm?</h3>
+            </div>
+            <div class="modal-body">
+                <div id="deleteCriteria-form">
+                    Are you sure you would like to delete the following Criteria?
+                    <br />
+                    {{criterion.desc}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="chooseCriteriaFunction();" data-dismiss="modal">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <div class="modal fade" id="addRubricClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">

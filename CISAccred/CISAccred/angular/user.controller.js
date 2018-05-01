@@ -104,7 +104,7 @@ CISAccredApp.controller('userController', function ($scope, session, php) {
         postData["name"] = $scope.evaluator.name;
         postData["session_key"] = session.key;
 
-        var url = "/api/addEvaluator.php";
+        var url = "api/addEvaluator.php";
 
         php.post(postData, url, function () {
             $().notify("Evaluator added.", "success");
@@ -122,7 +122,7 @@ CISAccredApp.controller('userController', function ($scope, session, php) {
         postData["name"] = $scope.evaluator.name;
         postData["session_key"] = session.key;
 
-        var url = "/api/addEvaluator.php";
+        var url = "api/addEvaluator.php";
 
         php.post(postData, url, function () {
             $().notify("Evaluator added.", "success");
