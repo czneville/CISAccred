@@ -22,4 +22,15 @@ CISAccredApp.config(function ($routeProvider) {
             templateUrl: 'pages/abet.html',
             controller: 'abetController'
         })
+
+        .when('/inactive', {
+            templateUrl: 'pages/inactive.html',
+            controller: 'inactiveController'
+        })
+
+        .when('/help', {
+            templateUrl: 'pages/help.html',
+            controller: 'helpController'
+        })
+
 });

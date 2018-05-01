@@ -20,7 +20,7 @@
 		$p_password = $_POST['password'];
 		$p_isadmin = $_POST['isadmin'];
 
-		$query = executeQuery("INSERT INTO CIS_PROFESSOR VALUES(".$p_id.", '".$p_fname."', '".$p_lname."', '".$p_username."', '".$p_password."', ".$p_isadmin.")", false);
+		$query = executeQuery("INSERT INTO CIS_PROFESSOR VALUES(".$p_id.", '".$p_fname."', '".$p_lname."', '".$p_username."', '".$p_password."', ".$p_isadmin.", 1)", false);
 		
 		if($query)
 		{
@@ -44,6 +44,23 @@
 		
 		$query = executeQuery("UPDATE CIS_PROFESSOR SET P_FNAME='".$p_fname."', P_LNAME='".$p_lname."', P_USERNAME='".$p_username."', P_PASSWORD='".$p_password."', P_ISADMIN=".$p_isadmin." WHERE P_ID=".$p_id,false);
 						
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+			header("HTTP/1.1 500 Internal Server Error");
+			exit();
+		}
+	}
+
+	if($verb == "delete")
+	{
+		$p_id = $_POST['id'];
+		
+		$query = executeQuery("UPDATE CIS_PROFESSOR SET P_ISACTIVE = 0 WHERE P_ID = ".$p_id,false);
+
 		if($query)
 		{
 			exit();

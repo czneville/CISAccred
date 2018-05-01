@@ -16,7 +16,7 @@
 		$eval_id = $_POST['id'];
 		$eval_name = $_POST['name'];
 		
-		$query = executeQuery("INSERT INTO CIS_EVALUATOR VALUES(".$eval_id.", '".$eval_name."')", false);
+		$query = executeQuery("INSERT INTO CIS_EVALUATOR VALUES(".$eval_id.", '".$eval_name."', 1)", false);
 		
 		if($query)
 		{
@@ -36,6 +36,23 @@
 		
 		$query = executeQuery("UPDATE CIS_EVALUATOR SET EVAL_NAME='".$eval_name."' WHERE EVAL_ID=".$eval_id,false);
 						
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+			header("HTTP/1.1 500 Internal Server Error");
+			exit();
+		}
+	}
+
+	if($verb == "delete")
+	{
+		$eval_id = $_POST['id'];
+		
+		$query = executeQuery("UPDATE CIS_EVALUATOR SET EVAL_ISACTIVE = 0 WHERE EVAL_ID = ".$eval_id,false);
+
 		if($query)
 		{
 			exit();

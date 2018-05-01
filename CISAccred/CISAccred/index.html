@@ -12,18 +12,23 @@
     <script src="scripts/validate.min.js"></script>
     
     <script src="angular/cisaccredapp.module.js"></script>
+    
     <script src="angular/authentication.service.js"></script>
     <script src="angular/session.service.js"></script>
     <script src="angular/php.service.js"></script>
+    
     <script src="angular/main.controller.js"></script>
     <script src="angular/login.controller.js"></script>
     <script src="angular/home.controller.js"></script>
     <script src="angular/student.controller.js"></script>
     <script src="angular/abet.controller.js"></script>
     <script src="angular/user.controller.js"></script>
+    <script src="angular/help.controller.js"></script>
+    <script src="angular/inactive.controller.js"></script>
+    
     <script src="scripts/notify.min.js"></script>
     
-    <link href="css/cissacred.css" rel="stylesheet" />
+    <link href="css/bad.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -54,6 +59,12 @@
                 </li>
                 <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-user"></span>&nbsp;User Management
+                </li>
+                <li ng-click='$location.path("/inactive");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
+                    <span class="glyphicon glyphicon-eye-close"></span>&nbsp;Inactive Records
+                </li>
+                <li ng-click='$location.path("/help");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
+                    <span class="glyphicon glyphicon-question-sign"></span>&nbsp;Help
                 </li>
                 <li class="logout-btn" ng-click='session.logout();' ng-hide="!session.isLoggedIn();">
                     <span class="glyphicon glyphicon-remove"></span>&nbsp;Logout

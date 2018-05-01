@@ -72,7 +72,9 @@
     <Content Include="angular\abet.controller.js" />
     <Content Include="angular\authentication.service.js" />
     <Content Include="angular\cisaccredapp.module.js" />
+    <Content Include="angular\help.controller.js" />
     <Content Include="angular\home.controller.js" />
+    <Content Include="angular\inactive.controller.js" />
     <Content Include="angular\login.controller.js" />
     <Content Include="angular\main.controller.js" />
     <Content Include="angular\php.service.js" />
@@ -97,7 +99,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bad.css" />
     <Content Include="css\cissacred.css" />
+    <Content Include="css\good.css" />
     <Content Include="favicon.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
@@ -122,6 +126,8 @@
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\abet.html" />
     <Content Include="pages\abet2.html" />
+    <Content Include="pages\help.html" />
+    <Content Include="pages\inactive.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\student.html" />
     <Content Include="pages\user.html" />
