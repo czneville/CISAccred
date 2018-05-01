@@ -38,4 +38,19 @@
 			exit();
 		}
 	}
+
+	if($verb == "restore")
+	{
+		$e_id = $_POST['id'];
+		$query = executeQuery("UPDATE CIS_EVALUATOR SET EVAL_ISACTIVE = 1 WHERE EVAL_ID =".$e_id,false);
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+		header("HTTP/1.1 500 Internal Server Error");
+		exit();
+		}
+	}
 ?>

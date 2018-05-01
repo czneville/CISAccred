@@ -34,7 +34,7 @@
         <tr ng-repeat="r in rubrics">
             <td>&nbsp;{{r["R_ASSESSMENT_METH"]}}</td>
             <td>&nbsp;{{r["R_NAME"]}}</td>
-            <td><a>&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
+            <td><a ng-click="rubric.verb='restore';rubric.id=r['R_ID'];restoreRubric();">&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
         </tr>
     </table>
     <br /><br />
@@ -51,7 +51,7 @@
         <tr ng-repeat="o in outcomes">
             <td>{{o["OUT_NAME"]}}</td>
             <td>{{o["OUT_DESC"]}}</td>
-            <td><a>&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
+            <td><a ng-click="outcome.verb='restore';outcome.id=o['OUT_ID'];restoreOutcome();">&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
         </tr>
     </table>
     <br /><br />
@@ -70,7 +70,7 @@
             <td>&nbsp;{{u["P_FNAME"]}}</td>
             <td>&nbsp;{{u["P_LNAME"]}}</td>
             <td>&nbsp;{{u["P_USERNAME"]}}</td>
-            <td><a>&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
+            <td><a ng-click="user.verb='restore';user.id=u['P_ID'];restoreUser();" >&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
         </tr>
     </table>
     <br /><br />
@@ -85,7 +85,7 @@
         </tr>
         <tr ng-repeat="e in evaluators">
             <td>&nbsp;{{e["EVAL_NAME"]}}</td>
-            <td><a>&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
+            <td><a ng-click="evaluator.verb='restore';evaluator.id=e['EVAL_ID'];restoreEvaluator();">&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
         </tr>
     </table>
     <br /><br />

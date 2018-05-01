@@ -38,4 +38,19 @@
 			exit();
 		}
 	}
+
+		if($verb == "restore")
+	{
+		$r_id = $_POST['id'];
+		$query = executeQuery("UPDATE CIS_RUBRIC SET R_ISACTIVE = 1 WHERE R_ID =".$r_id,false);
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+		header("HTTP/1.1 500 Internal Server Error");
+		exit();
+		}
+	}
 ?>
