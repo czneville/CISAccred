@@ -99,6 +99,7 @@
     <Content Include="api\inactiveOutcome.php" />
     <Content Include="api\inactiveUser.php" />
     <Content Include="api\inactiveEvaluator.php" />
+    <Content Include="api\rubricClass.php" />
     <Content Include="CISACCRED.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
