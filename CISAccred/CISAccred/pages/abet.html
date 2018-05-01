@@ -31,8 +31,8 @@
         <ul class="nav nav-pills">
             <li id="rubrics" role="presentation" class="active" ng-click="activePill.set('rubrics')"><a>Rubrics</a></li>
             <li id="criteria" role="presentation" ng-click="activePill.set('criteria')"><a>Criteria</a></li>
-            <li id="rubricclass" role="presentation" ng-click="activePill.set('rubricclass')"><a>Rubric-Class Mapping</a></li>
-            <li id="criteriaoutcome" role="presentation" ng-click="activePill.set('criteriaoutcome')"><a>Criteria-Outcome Mapping</a></li>
+            <li id="rubricclass" role="presentation" ng-click="activePill.set('rubricclass');updateRubricClasses();"><a>Rubric-Class Mapping</a></li>
+            <li id="criteriaoutcome" role="presentation" ng-click="activePill.set('criteriaoutcome');updateOutcomeCriteria();"><a>Criteria-Outcome Mapping</a></li>
         </ul>
 
         <div class="pill-box" ng-show="activePill.active === 'rubrics'">
@@ -143,7 +143,7 @@
                         <tr ng-repeat="o in outcomeCriteria">
                             <td>{{o["OUT_NAME"]}}</td>
                             <td>{{o["OUT_DESC"]}}</td>
-                            <td><a ng-click="outcomeCriterion.id = o['RELATIONSHIP_ID'];deleteOutcomeCriteria();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+                            <td><a style="color: crimson;" ng-click="outcomeCriterion.id = o['RELATIONSHIP_ID'];deleteOutcomeCriteria();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete Mapping</a></td>
                         </tr>
                         <tr>
                             <td colspan="3"><a data-toggle="modal" data-target="#addOutcomeCriteria" >Add new mapping...</a></td>
@@ -373,7 +373,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="modal fade" id="addRubricClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">

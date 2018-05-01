@@ -96,11 +96,11 @@ table.fancy-table > tbody > tr > td {
 }
 
 table.fancy-table > tbody > tr > td:nth-child(1){
-    width: 10%;
+    width: 30%;
 }
 
 table.fancy-table > tbody > tr > td:nth-child(2){
-    width: 70%;
+    width: 50%;
 }
 
 table.fancy-table > tbody > tr:nth-child(2n+1){

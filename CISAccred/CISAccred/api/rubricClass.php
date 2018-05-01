@@ -42,6 +42,17 @@
         }
     }
 
+    if($verb == 'getall'){
+        $query = executeQuery("SELECT * FROM CIS_RUBRIC_CLASS c, CIS_CLASS r, CIS_RUBRIC s WHERE c.C_ID = r.C_ID AND c.R_ID = s.R_ID",true);
+        if($query){
+            echo(json_encode($query));
+            exit();
+        }else{
+            echo("{}");
+            exit();
+        }
+    }
+
     if($verb == 'delete'){
         $id = $_POST["id"];
         $query = executeQuery("DELETE FROM CIS_RUBRIC_CLASS WHERE RELATIONSHIP_ID=".$id,false);

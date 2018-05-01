@@ -127,11 +127,11 @@ table.fancy-table {
     }
 
         table.fancy-table > tbody > tr > td:nth-child(1) {
-            width: 10%;
+            width: 15%;
         }
 
         table.fancy-table > tbody > tr > td:nth-child(2) {
-            width: 70%;
+            width: 65%;
         }
 
     table.fancy-table > tbody > tr:nth-child(2n+1) {

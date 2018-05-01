@@ -383,6 +383,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         })
     };
     $scope.updateRubricClasses = function () {
+        if ($scope.selectedRubric == 'undefined') { return; }
         var postData = Array();
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
@@ -414,6 +415,7 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     $scope.outcomeCriteria = new Object();
     $scope.outcomeCriterion = new Object();
     $scope.updateOutcomeCriteria = function () {
+        if ($scope.selectedCriteria == 'undefined') { return;}
         var postData = Array();
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
