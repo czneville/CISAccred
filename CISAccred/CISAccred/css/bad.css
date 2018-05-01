@@ -49,6 +49,18 @@ nav#main-nav {
     padding: 0px;
 }
 
+select {
+    padding: 10px;
+    margin: 5%;
+    margin-top: 3%;
+}
+
+option {
+    padding: 5px;
+    margin: 5%;
+    margin-top: 3%;
+}
+
 div#content-well {
     padding: 5%;
     margin: 5%;

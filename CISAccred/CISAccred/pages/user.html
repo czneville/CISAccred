@@ -17,7 +17,7 @@
             <td>&nbsp;{{u["P_FNAME"]}}</td>
             <td>&nbsp;{{u["P_LNAME"]}}</td>
             <td>&nbsp;{{u["P_USERNAME"]}}</td>
-            <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.fname=u['P_FNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a data-toggle="modal" data-target="#addUser" ng-click="user.verb='modify';user.id=u['P_ID']; user.fname=u['P_FNAME'];user.lname=u['P_LNAME'];user.username=u['P_USERNAME'];user.password=u['P_PASSWORD'];user.isadmin=u['P_ISADMIN'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
             <td><a data-toggle="modal" data-target="#deleteUser" ng-click="user.verb='delete';user.id=u['P_ID'];user.fname=u['P_FNAME'];user.lname=u['P_LNAME'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
@@ -58,7 +58,7 @@
                         Last Name: <input type="text" class="form-control" placeholder="Smith" ng-model="user.lname" /><br />
                         Username: <input type="text" class="form-control" placeholder="smithj" ng-model="user.username" /><br />
                         Password: <input type="password" class="form-control" placeholder="Password" ng-model="user.password" /><br />
-                        Administrator: <input type="text" class="form-control" placeholder="1" ng-model="user.isadmin" /><br />
+                        Administrator: <br /><select ng-model="user.isadmin"><option value="1">Yes</option><option value="0">No</option></select><br /><br />
                         <input id="userAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseUserFunction();" /><br /><br />
                     </form>
                 </div>
