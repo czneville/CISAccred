@@ -107,6 +107,7 @@
     <Content Include="css\bad.css" />
     <Content Include="css\cissacred.css" />
     <Content Include="css\good.css" />
+    <Content Include="favicon.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="api\phpversion.php">

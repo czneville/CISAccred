@@ -30,6 +30,7 @@
     
     <link href="css/bad.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body ng-controller="mainController" id="main">
@@ -53,10 +54,10 @@
                 <li ng-click='$location.path("/student");' ng-hide="!session.isLoggedIn();">
                     <span class="glyphicon glyphicon-pencil"></span>&nbsp;Student Records
                 </li>
-                <li ng-click='$location.path("/abet");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
+                <li ng-click='$location.path("/abet");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Add / Edit ABET Data
                 </li>
-                <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
+                <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-user"></span>&nbsp;User Management
                 </li>
                 <li ng-click='$location.path("/inactive");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
