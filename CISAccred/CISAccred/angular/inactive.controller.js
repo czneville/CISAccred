@@ -13,6 +13,7 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
     $scope.class = new Object();
     $scope.rubric = new Object();
     $scope.outcome = new Object();
+    $scope.criteria = new Object();
     $scope.user = new Object();
     $scope.evaluator = new Object();
 
@@ -58,6 +59,21 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
             $scope.rubrics = angular.fromJson(response.data);
         }, function (response) {
             $().notify("Failed to load rubric list!\n" + response.data);
+        });
+    };
+
+    var updateCriteria = function () {
+        var postData = Array();
+        if (session.key == "") { return; }
+        postData["session_key"] = session.key;
+        postData["isActive"] = "0";
+        postData["verb"] = "get";
+        var url = "api/inactiveCriteria.php";
+        php.post(postData, url, function (response) {
+            $scope.criterion = new Object();
+            $scope.criterion = angular.fromJson(response.data);
+        }, function (response) {
+            $().notify("Failed to load criteria list!\n" + response.data);
         });
     };
 
@@ -121,10 +137,10 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
 
         php.post(postData, url, function () {
             $().notify("Rubric Restored.", "success");
-            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            $("#restoreRubric > div.modal-dialog > div > div.modal-footer > button").click();
             updateRubrics();
         }, function (response) {
-            $().notify("Restore class failed!\n" + response.data);
+            $().notify("Restore rubric failed!\n" + response.data);
         });
     }
 
@@ -139,10 +155,10 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
 
         php.post(postData, url, function () {
             $().notify("Outcome Restored.", "success");
-            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            $("#restoreOutcome > div.modal-dialog > div > div.modal-footer > button").click();
             updateOutcomes();
         }, function (response) {
-            $().notify("Restore class failed!\n" + response.data);
+            $().notify("Restore outcome failed!\n" + response.data);
         });
     }
 
@@ -157,10 +173,10 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
 
         php.post(postData, url, function () {
             $().notify("User Restored.", "success");
-            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            $("#restoreUser > div.modal-dialog > div > div.modal-footer > button").click();
             updateUsers();
         }, function (response) {
-            $().notify("Restore class failed!\n" + response.data);
+            $().notify("Restore user failed!\n" + response.data);
         });
     }
 
@@ -175,15 +191,34 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
 
         php.post(postData, url, function () {
             $().notify("Evaluator Restored.", "success");
-            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            $("#restoreEvaluator > div.modal-dialog > div > div.modal-footer > button").click();
             updateEvaluators();
         }, function (response) {
-            $().notify("Restore class failed!\n" + response.data);
+            $().notify("Restore evaluator failed!\n" + response.data);
+        });
+    }
+
+    $scope.restoreCriteria = function () {
+        var postData = Array();
+        postData["verb"] = "restore";
+        postData["id"] = $scope.criteria.id;
+        postData["isActive"] = "0";
+        postData["session_key"] = session.key;
+
+        var url = "api/inactiveCriteria.php";
+
+        php.post(postData, url, function () {
+            $().notify("Criteria Restored.", "success");
+            $("#restoreCriteria > div.modal-dialog > div > div.modal-footer > button").click();
+            updateCriteria();
+        }, function (response) {
+            $().notify("Restore criteria failed!\n" + response.data);
         });
     }
 
     updateClasses();
     updateRubrics();
+    updateCriteria();
     updateOutcomes();
     updateEvaluators();
     updateUsers();

@@ -95,6 +95,7 @@
     <Content Include="api\getEvaluator.php" />
     <Content Include="api\addUser.php" />
     <Content Include="api\inactiveClass.php" />
+    <Content Include="api\inactiveCriteria.php" />
     <Content Include="api\inactiveRubric.php" />
     <Content Include="api\inactiveOutcome.php" />
     <Content Include="api\inactiveUser.php" />

@@ -2,6 +2,7 @@
     <li id="class" class="active" role="presentation" ng-click="activeTab.set('class')"><a>Classes</a></li>
     <li id="rubric" role="presentation" ng-click="activeTab.set('rubric')"><a>Rubrics</a></li>
     <li id="outcome" role="presentation" ng-click="activeTab.set('outcome')"><a>Outcomes</a></li>
+    <li id="criteria" role="presentation" ng-click="activeTab.set('criteria')"><a>Criteria</a></li>
     <li id="user" role="presentation" ng-click="activeTab.set('user')"><a>Users</a></li>
     <li id="evaluator" role="presentation" ng-click="activeTab.set('evaluator')"><a>Evaluators</a></li>
 </ul>
@@ -52,6 +53,23 @@
             <td>{{o["OUT_NAME"]}}</td>
             <td>{{o["OUT_DESC"]}}</td>
             <td><a ng-click="outcome.verb='restore';outcome.id=o['OUT_ID'];restoreOutcome();">&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
+        </tr>
+    </table>
+    <br /><br />
+</div>
+
+<div id="abet-tab" ng-show="activeTab.active === 'criteria'">
+    <h3 style="margin-top: 0px; padding: 10px;">Criteria:</h3>
+    <table class="criteria-table-inactive">
+        <tr>
+            <td><b>Criteria Description</b></td>
+            <td><b>Mapped to Rubric</b></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="c in criterion">
+            <td>{{c["CRIT_TASK_DESC"]}}</td>
+            <td>{{c["R_NAME"]}}</td>
+            <td><a ng-click="criteria.verb='restore';criteria.id=c['CRIT_ID']; restoreCriteria();">&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;Restore...</a></td>
         </tr>
     </table>
     <br /><br />
