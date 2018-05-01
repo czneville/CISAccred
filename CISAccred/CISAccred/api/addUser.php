@@ -4,6 +4,7 @@
 	$verb = $_POST["verb"];
 	$sessionkey = $_POST['session_key'];
 	$session = verifySession($sessionkey);
+
 	if(!$session)
 	{
 	    header("HTTP/1.1 500 Internal Server Error");
