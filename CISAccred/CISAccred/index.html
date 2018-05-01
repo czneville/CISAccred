@@ -60,10 +60,10 @@
                 <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-user"></span>&nbsp;User Management
                 </li>
-                <li ng-click='$location.path("/inactive");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
+                <li ng-click='$location.path("/inactive");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-eye-close"></span>&nbsp;Inactive Records
                 </li>
-                <li ng-click='$location.path("/help");' ng-hide="(!session.isLoggedIn()) && (!session.isAdmin)">
+                <li ng-click='$location.path("/help");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
                     <span class="glyphicon glyphicon-question-sign"></span>&nbsp;Help
                 </li>
                 <li class="logout-btn" ng-click='session.logout();' ng-hide="!session.isLoggedIn();">
