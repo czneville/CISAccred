@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     $sessionkey = $_POST['session_key'];
 	$isActive = $_POST['isActive'];
 	include 'oracleQuery.php';
@@ -10,9 +10,9 @@
 		exit();
 	};
 	if($isActive == "1"){
-	$query = executeQuery("SELECT * FROM CIS_OUTCOME WHERE OUT_ISACTIVE = 1 ORDER BY OUT_ID");
+	$query = executeQuery("SELECT * FROM CIS_OUTCOME WHERE OUT_ISACTIVE = 1 ORDER BY OUT_NAME ASC");
 	}else{
-	$query = executeQuery("SELECT * FROM CIS_OUTCOME ORDER BY OUT_ID");
+	$query = executeQuery("SELECT * FROM CIS_OUTCOME ORDER BY OUT_NAME ASC");
 	}
 	if($query){
 		echo(json_encode($query));

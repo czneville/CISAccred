@@ -355,6 +355,53 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
         });
     };
 
+    $scope.rubricClass = new Object();
+    $scope.addRubricClass = function () {
+        var postData = Array();
+        postData["verb"] = 'add';
+        postData["session_key"] = session.key;
+        postData["class"] = $scope.rubricClass.class;
+        postData["rubric"] = $scope.selectedRubric;
+
+        var url = 'api/rubricClass.php';
+
+        php.post(postData, url, function () {
+            $().notify('Mapping added!');
+            $scope.updateRubricClasses();
+            $("#addRubricClass > div.modal-dialog > div > div.modal-footer > button").click();
+        }, function (response) {
+            $('#rubricClassAdd').notify('Failed! \n' + response.data, 'error');
+        })
+    };
+    $scope.updateRubricClasses = function () {
+        var postData = Array();
+        postData["session_key"] = session.key;
+        postData["isActive"] = "1";
+        postData["verb"] = "get";
+        postData["rubric"] = $scope.selectedRubric;
+        var url = "api/rubricClass.php";
+        php.post(postData, url, function (response) {
+            $scope.rubricClasses = new Object();
+            $scope.rubricClasses = angular.fromJson(response.data);
+        }, function (response) {
+           
+        });
+    };
+    $scope.deleteRubricClass = function () {
+        var postData = Array();
+        postData["verb"] = 'delete';
+        postData["session_key"] = session.key;
+        postData["id"] = $scope.rubricClass.id;
+
+        var url = 'api/rubricClass.php';
+
+        php.post(postData, url, function () {
+            $scope.updateRubricClasses();
+        }, function () {
+            $().notify("Delete failed!", 'error')
+        })
+    };
+
     var updateClasses = function () {
         var postData = Array();
         if (session.key == "") { return; }
@@ -368,7 +415,6 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
             $("#classAdd").notify("Failed to load class list!\n" + response.data);
         });
     };
-
     var updateRubrics = function () {
         var postData = Array();
         postData["session_key"] = session.key;
@@ -381,7 +427,6 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
             $("rubricAdd").notify("Failed to load rubrics list!\n" + response.data);
         });
     };
-
     var updateOutcomes = function () {
         var postData = Array();
         if (session.key == "") { return; }
@@ -424,6 +469,21 @@ CISAccredApp.controller('abetController', function ($scope, session, php) {
     $scope.firstUpper = function (word) {
         if (typeof (word) !== "undefined") {
             return (word.charAt(0).toUpperCase() + word.slice(1));
+        }
+    };
+
+    $scope.getClassName = function (id) {
+        for (var c in $scope.classes) {
+            if (c["C_ID"] == id) {
+                return(c["C_COURSE_TITLE"]);
+            }
+        }
+    };
+    $scope.getClassNum = function (id) {
+        for (var c in $scope.classes) {
+            if (c["C_ID"] == id) {
+                return (c["C_COURSE_NUM"]);
+            }
         }
     };
 

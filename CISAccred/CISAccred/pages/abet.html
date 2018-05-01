@@ -76,8 +76,8 @@
                             <td></td>
                         </tr>
                         <tr ng-repeat="c in criteria" ng-show="c['R_ID'] == selectedRubric">
-                            <td>&nbsp;<span class="glyphicon glyphicon-arrow-up" ng-click="criterion.id = c['CRIT_ID']; criterion.verb='moveup'; chooseCriteriaFunction();"></span></td>
-                            <td>&nbsp;<span class="glyphicon glyphicon-arrow-down" ng-click="criterion.id = c['CRIT_ID']; criterion.verb='movedown'; chooseCriteriaFunction();"></span></td>
+                            <td>&nbsp;<span class="glyphicon glyphicon-circle-arrow-up" ng-click="criterion.id = c['CRIT_ID']; criterion.verb='moveup'; chooseCriteriaFunction();"></span></td>
+                            <td>&nbsp;<span class="glyphicon glyphicon-circle-arrow-down" ng-click="criterion.id = c['CRIT_ID']; criterion.verb='movedown'; chooseCriteriaFunction();"></span></td>
                             <td>&nbsp;{{c["CRIT_LINE"]}}</td>
                             <td>&nbsp;{{c["CRIT_TASK_DESC"]}}</td>
                             <td>&nbsp;{{c["CRIT_MIN"]}}</td>
@@ -97,7 +97,7 @@
             <h3 style="margin-top: 0px; padding: 10px;">Class Mapping:</h3><br />
             <div style="margin-top: 0px; padding: 10px;">
                 <b>Rubric to Edit:</b>
-                <select class="form-control" ng-model="selectedRubric">
+                <select class="form-control" ng-model="selectedRubric" ng-change="updateRubricClasses();">
                     <option ng-repeat="r in rubrics" value='{{r["R_ID"]}}'>{{r["R_NAME"]}}</option>
                 </select>
                 <div ng-show="selectedRubric != 'undefined'">
@@ -108,13 +108,13 @@
                             <td><b>Course Title</b></td>
                             <td></td>
                         </tr>
-                        <tr ng-repeat="c in rubricclasses" ng-show="c['R_ID'] == selectedRubric">
-                            <td>&nbsp;{{c["C_COURSE_NUM"]}}</td>
-                            <td>&nbsp;{{c["C_COURSE_TITLE"]}}</td>
-                            <td>&nbsp;<a style="color: crimson;"><span class="glyphicon glyphicon-remove"></span>Delete Mapping</a></td>
+                        <tr ng-repeat="r in rubricClasses">
+                            <td>&nbsp;{{r["C_COURSE_NUM"]}}</td>
+                            <td>&nbsp;{{r["C_COURSE_TITLE"]}}</td>
+                            <td>&nbsp;<a style="color: crimson;" ng-click="rubricClass.id=r['RELATIONSHIP_ID'];deleteRubricClass();"><span class="glyphicon glyphicon-remove"></span>Delete Mapping</a></td>
                         </tr>
                         <tr>
-                            <td colspan="3">&nbsp;<a><span class="glyphicon glyphicon-plus"></span>Add new mapping...</a></td>
+                            <td colspan="3">&nbsp;<a data-toggle="modal" data-target="#addRubricClass"><span class="glyphicon glyphicon-plus"></span>Add new mapping...</a></td>
                         </tr>
                     </table>
                 </div>
@@ -354,6 +354,35 @@
                 </button>
                 <button type="button" class="btn btn-primary" ng-click="chooseCriteriaFunction();" data-dismiss="modal">
                     Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="addRubricClass" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="addClassLabel">Map Rubric</h3>
+            </div>
+            <div class="modal-body">
+                <div id="addClass-form">
+                    <form>
+                        <br />
+                        Class to add rubric too:
+                        <br />
+                        <select class="form-control" ng-model="rubricClass.class">
+                            <option ng-repeat="c in classes" value='{{c["C_ID"]}}'>{{c["C_COURSE_TITLE"]}}</option>
+                        </select><br />
+                        <input id="rubricClassAdd" type="submit" class="btn btn-default" value="Add" ng-click="addRubricClass();" /><br /><br />
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
                 </button>
             </div>
         </div>
