@@ -17,7 +17,7 @@
             <td>&nbsp;{{c["C_COURSE_NUM"]}}</td>
             <td>&nbsp;{{c["C_COURSE_TITLE"]}}</td>
             <td><a data-toggle="modal" data-target="#addClass" ng-click="class.verb = 'modify';class.courseNumber = c['C_COURSE_NUM'];class.title = c['C_COURSE_TITLE'];class.id=c['C_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
-            <td><a ng-click="class.verb = 'delete';class.id=c['C_ID'];chooseClassFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+            <td><a data-toggle="modal" data-target="#deleteClass" ng-click="class.verb = 'delete';class.id=c['C_ID'];class.title=c['C_COURSE_TITLE'];class.courseNumber=c['C_COURSE_NUM'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
             <td colspan="4"><a data-toggle="modal" data-target="#addClass" ng-click="class.verb='add';class.courseNumber='';class.title='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new class...</a></td>
@@ -48,7 +48,7 @@
                     <td>&nbsp;{{r["R_ASSESSMENT_METH"]}}</td>
                     <td>&nbsp;{{r["R_NAME"]}}</td>
                     <td><a data-toggle="modal" data-target="#addRubric" ng-click="rubric.verb = 'modify';rubric.assessment_method = r['R_ASSESSMENT_METH'];rubric.name = r['R_NAME'];rubric.id=r['R_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
-                    <td><a ng-click="selectedRubric='undefined';rubric.verb = 'delete';rubric.id=r['R_ID'];chooseRubricFunction();">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+                    <td><a data-toggle="modal" data-target="#deleteRubric" ng-click="selectedRubric='undefined';rubric.verb = 'delete';rubric.id=r['R_ID'];rubric.name=r['R_NAME'];rubric.assessment_method=r['R_ASSESSMENT_METH'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
                 </tr>
                 <tr>
                     <td colspan="4"><a data-toggle="modal" data-target="#addRubric" ng-click="rubric.verb='add';rubric.assessment_method='';rubric.name='';">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new rubric...</a></td>
@@ -152,8 +152,8 @@
         <tr ng-repeat="o in outcomes">
             <td>{{o["OUT_NAME"]}}</td>
             <td>{{o["OUT_DESC"]}}</td>
-            <td><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb = 'modify';outcome.name =o['OUT_NAME'];outcome.desc=o['OUT_DESC'];outcome.id=o['OUT_ID'];">Edit...</a></td>
-            <td><a ng-click="outcome.verb = 'delete';outcome.id=o['OUT_ID'];chooseOutcomeFunction();">Delete...</a></td>
+            <td><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb = 'modify';outcome.name =o['OUT_NAME'];outcome.desc=o['OUT_DESC'];outcome.id=o['OUT_ID'];">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a data-toggle="modal" data-target="#deleteOutcome" ng-click="outcome.verb = 'delete';outcome.id=o['OUT_ID'];outcome.name=o['OUT_NAME'];">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
         </tr>
         <tr>
             <td colspan="4"><a data-toggle="modal" data-target="#addOutcome" ng-click="outcome.verb='add';outcome.name='';outcome.desc='';">Add new outcome...</a></td>
@@ -254,6 +254,81 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteClass" tabindex="-1" role="dialog" aria-labelledby="deleteClassLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="deleteClassLabel">{{firstUpper(class.verb)}} Confirm?</h3>
+            </div>
+            <div class="modal-body">
+                <div id="deleteClass-form">
+                    Are you sure you would like to delete the following class?
+                    <br />
+                    {{class.courseNumber}}  {{class.title}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="chooseClassFunction();" data-dismiss="modal">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteRubric" tabindex="-1" role="dialog" aria-labelledby="deleteRubricLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="deleteRubricLabel">{{firstUpper(rubric.verb)}} Confirm?</h3>
+            </div>
+            <div class="modal-body">
+                <div id="deleteRubric-form">
+                    Are you sure you would like to delete the following Rubric?
+                    <br />
+                    {{rubric.assessment_method}} {{rubric.name}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="chooseRubricFunction();" data-dismiss="modal">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteOutcome" tabindex="-1" role="dialog" aria-labelledby="deleteOutcomeLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="deleteOutcomeLabel">{{firstUpper(outcome.verb)}} Confirm?</h3>
+            </div>
+            <div class="modal-body">
+                <div id="deleteOutcome-form">
+                    Are you sure you would like to delete the following Outcome?
+                    <br />
+                    {{outcome.name}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="chooseOutcomeFunction();" data-dismiss="modal">
+                    Confirm
                 </button>
             </div>
         </div>

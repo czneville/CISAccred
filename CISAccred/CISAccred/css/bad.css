@@ -191,11 +191,11 @@ table.user-table {
     border: 1px solid;
     }
 
-    table.user-table > tbody > tr > td:nth-child(5) > a {
+    table.user-table > tbody > tr > td:nth-child(4) > a {
         color: rebeccapurple;
     }
 
-    table.user-table > tbody > tr > td:nth-child(6) > a {
+    table.user-table > tbody > tr > td:nth-child(5) > a {
         color: crimson;
     }
 
@@ -222,11 +222,11 @@ table.evaluator-table {
     border: 1px solid;
     }
     
-    table.evaluator-table > tbody > tr > td:nth-child(3) > a {
+    table.evaluator-table > tbody > tr > td:nth-child(2) > a {
         color: rebeccapurple;
     }
 
-   table.evaluator-table > tbody > tr > td:nth-child(4) > a {
+   table.evaluator-table > tbody > tr > td:nth-child(3) > a {
         color: crimson;
     }
 
@@ -264,6 +264,11 @@ table.class-table-inactive {
         width: 5%;
     }
 
+    table.class-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
 
 table.rubric-table-inactive {
     border-collapse: unset;
@@ -282,6 +287,11 @@ table.rubric-table-inactive {
     table.rubric-table-inactive > tbody > tr > td:nth-child(3) > a {
         color: rebeccapurple;
         width: 5%;
+    }
+
+    table.rubric-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
     }
 
 
@@ -305,6 +315,11 @@ table.outcome-table-inactive {
     width: 5%;
     }
 
+    table.outcome-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
 
 table.user-table-inactive {
     border-collapse: unset;
@@ -325,6 +340,10 @@ table.user-table-inactive {
     width: 5%;
     }
 
+    table.user-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
+    }
 
 
 table.evaluator-table-inactive {
@@ -344,4 +363,9 @@ table.evaluator-table-inactive {
     table.evaluator-table-inactive > tbody > tr > td:nth-child(2) > a {
         color: rebeccapurple;
         width: 5%;
+    }
+
+    table.evaluator-table-inactive > tbody > tr > td > a, table.criteria-table > tbody > tr > td > span {
+        cursor: pointer;
+        font-weight: bolder;
     }

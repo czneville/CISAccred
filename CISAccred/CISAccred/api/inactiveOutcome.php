@@ -38,4 +38,19 @@
 			exit();
 		}
 	}
+
+		if($verb == "restore")
+	{
+		$o_id = $_POST['id'];
+		$query = executeQuery("UPDATE CIS_OUTCOME SET OUT_ISACTIVE = 1 WHERE OUT_ID =".$o_id,false);
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+		header("HTTP/1.1 500 Internal Server Error");
+		exit();
+		}
+	}
 ?>

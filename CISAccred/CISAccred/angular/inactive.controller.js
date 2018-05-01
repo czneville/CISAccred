@@ -27,7 +27,7 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
             $scope.classes = new Object();
             $scope.classes = angular.fromJson(response.data);
         }, function (response) {
-            $("#classAdd").notify("Failed to load class list!\n" + response.data);
+            $().notify("Failed to load class list!\n" + response.data);
         });
     };
 
@@ -42,7 +42,7 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
             $scope.users = new Object();
             $scope.users = angular.fromJson(response.data);
         }, function (response) {
-            $("#userAdd").notify("Failed to load user list!\n" + response.data);
+            $().notify("Failed to load user list!\n" + response.data);
         });
     };
 
@@ -57,7 +57,7 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
             $scope.rubrics = new Object();
             $scope.rubrics = angular.fromJson(response.data);
         }, function (response) {
-            $("#rubricAdd").notify("Failed to load rubric list!\n" + response.data);
+            $().notify("Failed to load rubric list!\n" + response.data);
         });
     };
 
@@ -72,7 +72,7 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
             $scope.outcomes = new Object();
             $scope.outcomes = angular.fromJson(response.data);
         }, function (response) {
-            $("#outcomeAdd").notify("Failed to load outcome list!\n" + response.data);
+            $().notify("Failed to load outcome list!\n" + response.data);
         });
     };
 
@@ -87,7 +87,7 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
             $scope.evaluators = new Object();
             $scope.evaluators = angular.fromJson(response.data);
         }, function (response) {
-            $("#evaluatorAdd").notify("Failed to load evaluator list!\n" + response.data);
+            $().notify("Failed to load evaluator list!\n" + response.data);
         });
     };
 
@@ -104,11 +104,82 @@ CISAccredApp.controller('inactiveController', function ($scope, session, php) {
         php.post(postData, url, function () {
             $().notify("Class Restored.", "success");
             $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
-            
+            updateClasses();
         }, function (response) {
-            $("#classRestore").notify("Restore class failed!\n" + response.data);
+            $().notify("Restore class failed!\n" + response.data);
             });
-        updateClasses();
+    }
+
+    $scope.restoreRubric = function () {
+        var postData = Array();
+        postData["verb"] = "restore";
+        postData["id"] = $scope.rubric.id;
+        postData["isActive"] = "0";
+        postData["session_key"] = session.key;
+
+        var url = "api/inactiveRubric.php";
+
+        php.post(postData, url, function () {
+            $().notify("Rubric Restored.", "success");
+            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateRubrics();
+        }, function (response) {
+            $().notify("Restore class failed!\n" + response.data);
+        });
+    }
+
+    $scope.restoreOutcome = function () {
+        var postData = Array();
+        postData["verb"] = "restore";
+        postData["id"] = $scope.outcome.id;
+        postData["isActive"] = "0";
+        postData["session_key"] = session.key;
+
+        var url = "api/inactiveOutcome.php";
+
+        php.post(postData, url, function () {
+            $().notify("Outcome Restored.", "success");
+            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateOutcomes();
+        }, function (response) {
+            $().notify("Restore class failed!\n" + response.data);
+        });
+    }
+
+    $scope.restoreUser = function () {
+        var postData = Array();
+        postData["verb"] = "restore";
+        postData["id"] = $scope.user.id;
+        postData["isActive"] = "0";
+        postData["session_key"] = session.key;
+
+        var url = "api/inactiveUser.php";
+
+        php.post(postData, url, function () {
+            $().notify("User Restored.", "success");
+            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateUsers();
+        }, function (response) {
+            $().notify("Restore class failed!\n" + response.data);
+        });
+    }
+
+    $scope.restoreEvaluator = function () {
+        var postData = Array();
+        postData["verb"] = "restore";
+        postData["id"] = $scope.evaluator.id;
+        postData["isActive"] = "0";
+        postData["session_key"] = session.key;
+
+        var url = "api/inactiveEvaluator.php";
+
+        php.post(postData, url, function () {
+            $().notify("Evaluator Restored.", "success");
+            $("#restoreClass > div.modal-dialog > div > div.modal-footer > button").click();
+            updateEvaluators();
+        }, function (response) {
+            $().notify("Restore class failed!\n" + response.data);
+        });
     }
 
     updateClasses();

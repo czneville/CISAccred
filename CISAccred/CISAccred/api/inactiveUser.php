@@ -38,4 +38,19 @@
 			exit();
 		}
 	}
+
+	if($verb == "restore")
+	{
+		$p_id = $_POST['id'];
+		$query = executeQuery("UPDATE CIS_PROFESSOR SET P_ISACTIVE = 1 WHERE P_ID =".$p_id,false);
+		if($query)
+		{
+			exit();
+		}
+		else
+		{
+		header("HTTP/1.1 500 Internal Server Error");
+		exit();
+		}
+	}
 ?>

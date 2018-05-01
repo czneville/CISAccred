@@ -13,10 +13,19 @@
   
 	if($verb == "add")
 	{
-		$eval_id = $_POST['id'];
 		$eval_name = $_POST['name'];
+
+		$maxId = executeQuery("SELECT MAX(P_ID) FROM CIS_PROFESSOR", true)[0]["MAX(P_ID)"];
+		if(!isset($maxId))
+		{
+		$maxId=1000;
+		}
+		else
+		{
+		$maxId++;
+		}
 		
-		$query = executeQuery("INSERT INTO CIS_EVALUATOR VALUES(".$eval_id.", '".$eval_name."', 1)", false);
+		$query = executeQuery("INSERT INTO CIS_EVALUATOR VALUES(".$maxId.", '".$eval_name."', 1)", false);
 		
 		if($query)
 		{
