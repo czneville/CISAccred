@@ -10,9 +10,9 @@
 		exit();
 	};
 	if($isActive == "1"){
-	$query = executeQuery("SELECT * FROM CIS_OUTCOME WHERE OUT_ISACTIVE = 1 ORDER BY OUT_NAME ASC");
+	$query = executeQuery("SELECT * FROM CIS_OUTCOME WHERE OUT_ISACTIVE = 1");
 	}else{
-	$query = executeQuery("SELECT * FROM CIS_OUTCOME ORDER BY OUT_NAME ASC");
+	$query = executeQuery("SELECT * FROM CIS_OUTCOME");
 	}
 	if($query){
 		echo(json_encode($query));
