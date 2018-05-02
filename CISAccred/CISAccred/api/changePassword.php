@@ -15,7 +15,7 @@
 		exit();
 	};
 
-	$query = executeQuery("UPDATE CIS_PROFESSOR SET P_PASSWORD ='".$new."' WHERE P_ID =".$p_id,false);
+	$query = executeQuery("UPDATE CIS_PROFESSOR SET P_PASSWORD ='".$new."' WHERE P_PASSWORD = '".$old."' AND P_ID =".$p_id,false);
 	 
 	if ($query)
 	{

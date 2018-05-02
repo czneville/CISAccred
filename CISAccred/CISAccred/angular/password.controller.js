@@ -17,6 +17,7 @@ CISAccredApp.controller('passwordController', function ($scope, session, php) {
         php.post(postData, url, function () {
             $().notify("Password changed.", "success");
             $("#passwordChange > div.modal-dialog > div > div.modal-footer > button").click();
+            $("#password-btn").notify("Password changed!", "success");
         }, function (response) {
             $("#passwordChange").notify("Password change failed!\n" + response.data);
         });

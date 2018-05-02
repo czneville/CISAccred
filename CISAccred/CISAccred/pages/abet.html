@@ -205,7 +205,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="addOutcomeLabel">Add Outcome</h3>
+                <h3 class="modal-title" id="addOutcomeLabel">{{firstUpper(outcome.verb)}} Outcome</h3>
             </div>
             <div class="modal-body">
                 <div id="addOutcome-form">
@@ -225,14 +225,14 @@
     </div>
 </div>
 
-<div class="modal fade" id="addRubric" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+<div class="modal fade" id="addRubric" tabindex="-1" role="dialog" aria-labelledby="addRubricLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="addClassLabel">{{firstUpper(rubric.verb)}} Rubric</h3>
+                <h3 class="modal-title" id="addRubricLabel">{{firstUpper(rubric.verb)}} Rubric</h3>
             </div>
             <div class="modal-body">
-                <div id="addClass-form">
+                <div id="addRubric-form">
                     <form>
                         Assessment Method: <input type="text" class="form-control" placeholder="AM-1" ng-model="rubric.assessment_method" /><br />
                         Rubric Name: <input type="text" class="form-control" placeholder="Ethics Essay" ng-model="rubric.name" /><br />
@@ -249,14 +249,14 @@
     </div>
 </div>
 
-<div class="modal fade" id="addCriteria" tabindex="-1" role="dialog" aria-labelledby="addClassLabel" aria-hidden="true">
+<div class="modal fade" id="addCriteria" tabindex="-1" role="dialog" aria-labelledby="addCriteriaLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="addClassLabel">{{firstUpper(criterion.verb)}} Rubric</h3>
+                <h3 class="modal-title" id="addClassCriteria">{{firstUpper(criterion.verb)}} Criteria</h3>
             </div>
             <div class="modal-body">
-                <div id="addClass-form">
+                <div id="addCriteria-form">
                     <form>
                         Criteria Description: <input type="text" class="form-control" placeholder="Correct Grammar" ng-model="criterion.desc" /><br />
                         Min Score: <input type="text" class="form-control" value="0" ng-model="criterion.min" /><br />
@@ -279,7 +279,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteClassLabel">{{firstUpper(class.verb)}} Confirm?</h3>
+                <h3 class="modal-title" id="deleteClassLabel">{{firstupper(class.verb)}} confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteClass-form">
@@ -304,7 +304,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteRubricLabel">{{firstUpper(rubric.verb)}} Confirm?</h3>
+                <h3 class="modal-title" id="deleteRubricLabel">{{firstUpper(rubric.verb)}} confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteRubric-form">
@@ -329,7 +329,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteOutcomeLabel">{{firstUpper(outcome.verb)}} Confirm?</h3>
+                <h3 class="modal-title" id="deleteOutcomeLabel">{{firstUpper(outcome.verb)}} confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteOutcome-form">
@@ -354,7 +354,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteCriteriaLabel">{{firstUpper(criteria.verb)}} Confirm?</h3>
+                <h3 class="modal-title" id="deleteCriteriaLabel">{{firstUpper(criteria.verb)}} confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteCriteria-form">
