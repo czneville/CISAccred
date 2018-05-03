@@ -135,7 +135,6 @@
     <Content Include="api\getOutcome.php" />
     <None Include="Properties\PublishProfiles\publish_orion.pubxml" />
     <Content Include="pages\abet.html" />
-    <Content Include="pages\abet2.html" />
     <Content Include="pages\inactive.html" />
     <Content Include="pages\login.html" />
     <Content Include="pages\password.html" />
