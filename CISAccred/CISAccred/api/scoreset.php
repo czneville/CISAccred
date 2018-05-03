@@ -89,4 +89,23 @@
             exit();
         }
     }
+
+    if($verb == 'delete'){
+        $id = $_POST['SCORE_ID'];
+
+        $query = executeQuery("DELETE FROM CIS_SCORESET_CRITERIA WHERE SCORE_ID=".$id,false);
+
+        if($query){
+            $query = executeQuery("DELETE FROM CIS_SCORESET WHERE SCORE_ID=".$id, false);
+            if($query){
+                exit();
+            }else{
+                header("HTTP/1.1 500 Internal Server Error");
+                exit();
+            }
+        }else{
+            header("HTTP/1.1 500 Internal Server Error");
+            exit();
+        }
+    }
 ?>

@@ -117,6 +117,7 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
             //fail
         })
     };
+   
 
     $scope.fetchCriteria = function () {
         var postData = Array();
@@ -188,6 +189,22 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
     $scope.resetScoreset = function () {
         $scope.scoreset = new Object();
         $scope.scoreset.verb = 'add';
+    };
+    $scope.deleteScoreset = function () {
+        var postData = Array();
+        if (session.key == "") { return; }
+        postData["session_key"] = session.key;
+        postData["SCORE_ID"] = $scope.scoreset["SCORE_ID"];
+        postData["verb"] = 'delete';
+
+        var url = 'api/scoreset.php';
+
+        php.post(postData, url, function () {
+            //succeed
+            updateScoresets();
+        }, function () {
+            //fail
+        })
     };
 
     updateClasses();
