@@ -185,10 +185,10 @@
             </div>
             <div class="modal-body">
                 <div id="addClass-form">
-                    <form>
-                        Class Course Number: <input type="text" class="form-control" placeholder="322" ng-model="class.courseNumber" /><br />
-                        Class Title: <input type="text" class="form-control" placeholder="DBMS" ng-model="class.title" /><br />
-                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseClassFunction();" /><br /><br />
+                    <form name="classform" novalidate>
+                        Class Course Number: <input name="classnum" type="text" class="form-control" placeholder="322" ng-model="class.courseNumber" required/><br />
+                        Class Title: <input type="text" name="classname" class="form-control" placeholder="DBMS" ng-model="class.title" required/><br />
+                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-disabled="classform.classnum.$invalid || classform.classname.$invalid" ng-click="chooseClassFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
@@ -209,10 +209,10 @@
             </div>
             <div class="modal-body">
                 <div id="addOutcome-form">
-                    <form>
-                        Outcome Name: <input type="text" class="form-control" placeholder="Name..." ng-model="outcome.name" /><br />
-                        Outcome Description: <input type="text" class="form-control" placeholder="Description..." ng-model="outcome.desc" /><br />
-                        <input id="outcomeAdd" type="submit" class="btn btn-default" value="Add Outcome" ng-click="chooseOutcomeFunction();" /><br /><br />
+                    <form name="outcomeform" novalidate>
+                        Outcome Name: <input name="outcomename" type="text" class="form-control" placeholder="Name..." ng-model="outcome.name" required/><br />
+                        Outcome Description: <input name="outcomedesc" type="text" class="form-control" placeholder="Description..." ng-model="outcome.desc" required/><br />
+                        <input id="outcomeAdd" type="submit" class="btn btn-default" value="Add Outcome" ng-disabled="outcomeform.outcomename.$invalid || outcomeform.outcomedesc.$invalid" ng-click="chooseOutcomeFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
@@ -233,10 +233,10 @@
             </div>
             <div class="modal-body">
                 <div id="addRubric-form">
-                    <form>
-                        Assessment Method: <input type="text" class="form-control" placeholder="AM-1" ng-model="rubric.assessment_method" /><br />
-                        Rubric Name: <input type="text" class="form-control" placeholder="Ethics Essay" ng-model="rubric.name" /><br />
-                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseRubricFunction();" /><br /><br />
+                    <form name="rubricform" novalidate>
+                        Assessment Method: <input name="rubricassessment" type="text" class="form-control" placeholder="AM-1" ng-model="rubric.assessment_method" required/><br />
+                        Rubric Name: <input name="rubricname" type="text" class="form-control" placeholder="Ethics Essay" ng-model="rubric.name" required/><br />
+                        <input id="classAdd" type="submit" class="btn btn-default" value="Save" ng-disabled="rubricform.rubricassessment.$invalid || rubricform.rubricname.$invalid" ng-click="chooseRubricFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
@@ -257,12 +257,12 @@
             </div>
             <div class="modal-body">
                 <div id="addCriteria-form">
-                    <form>
-                        Criteria Description: <input type="text" class="form-control" placeholder="Correct Grammar" ng-model="criterion.desc" /><br />
-                        Min Score: <input type="text" class="form-control" value="0" ng-model="criterion.min" /><br />
-                        Max Score: <input type="text" class="form-control" value="5" ng-model="criterion.max" /><br />
-                        Benchmark Score: <input type="text" class="form-control" value="3" ng-model="criterion.benchmark" /><br />
-                        <input id="criteriaAdd" type="submit" class="btn btn-default" value="Save" ng-click="chooseCriteriaFunction();" /><br /><br />
+                    <form name="critform" novalidate>
+                        Criteria Description: <input name="critdesc" type="text" class="form-control" placeholder="Correct Grammar" ng-model="criterion.desc" required/><br />
+                        Min Score: <input name="critmin" type="text" class="form-control" value="0" ng-model="criterion.min" required/><br />
+                        Max Score: <input name="critmax" type="text" class="form-control" value="5" ng-model="criterion.max" required/><br />
+                        Benchmark Score: <input name="critbench" type="text" class="form-control" value="3" ng-model="criterion.benchmark" required/><br />
+                        <input id="criteriaAdd" type="submit" class="btn btn-default" value="Save" ng-disabled="critform.critdesc.$invalid || critform.critmin.$invalid || critform.critmax.$invalid || critform.critbench.$invalid" ng-click="chooseCriteriaFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
