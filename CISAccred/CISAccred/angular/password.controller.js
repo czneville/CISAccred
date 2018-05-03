@@ -5,6 +5,8 @@ CISAccredApp.controller('passwordController', function ($scope, session, php) {
 
     $scope.change = new Object();
 
+    $scope.message = "Hasn't run";
+
     $scope.changePassword = function () {
         var postData = Array();
         postData["id"] = session.id;
@@ -15,8 +17,6 @@ CISAccredApp.controller('passwordController', function ($scope, session, php) {
         var url = "api/changePassword.php";
 
         php.post(postData, url, function () {
-            $().notify("Password changed.", "success");
-            $("#passwordChange > div.modal-dialog > div > div.modal-footer > button").click();
             $("#password-btn").notify("Password changed!", "success");
         }, function (response) {
             $("#passwordChange").notify("Password change failed!\n" + response.data);
