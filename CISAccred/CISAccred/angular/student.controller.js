@@ -8,7 +8,15 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
     $scope.selectedClass = 'undefined';
     $scope.selectedRubric = 'undefined';
 
+    $scope.firstUpper = function (word) {
+        if (typeof (word) !== "undefined") {
+            return (word.charAt(0).toUpperCase() + word.slice(1));
+        }
+    };
+
+
     var updateClasses = function () {
+        if (session.key == "") { return; }
         var postData = Array();
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
@@ -21,6 +29,7 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
         });
     };
     var updateRubrics = function () {
+        if (session.key == "") { return; }
         var postData = Array();
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
@@ -33,6 +42,7 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
         });
     };
     var updateRubricClasses = function () {
+        if (session.key == "") { return; }
         var postData = Array();
         postData["session_key"] = session.key;
         postData["isActive"] = "1";
@@ -62,8 +72,11 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
     };
 
     $scope.chooseScoresetAction = function () {
-        if ($scope.scoreset.verb = 'add') {
+        if ($scope.scoreset.verb == 'add') {
             addScoreset();
+        }
+        if ($scope.scoreset.verb == 'edit') {
+            editScoreset();
         }
     };
     var addScoreset = function () {
@@ -81,6 +94,25 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
 
         php.post(postData, url, function () {
             //succeed
+            $('#scoresetModal > div.modal-dialog > div > div.modal-footer > button').click();
+            updateScoresets();
+        }, function () {
+            //fail
+        })
+    };
+    var editScoreset = function () {
+        var postData = Array();
+        if (session.key == "") { return; }
+        postData["session_key"] = session.key;
+        postData["scoreset"] = angular.toJson($scope.scoreset);
+        postData["verb"] = 'edit';
+
+        var url = 'api/scoreset.php';
+
+        php.post(postData, url, function () {
+            //succeed
+            $('#scoresetModal > div.modal-dialog > div > div.modal-footer > button').click();
+            updateScoresets();
         }, function () {
             //fail
         })
@@ -100,9 +132,62 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
                     $scope.criteria[i] = data[i];
                 }
             };
+            updateScoresets();
         }, function (response) {
             $("").notify("Failed to load criteria list!\n" + response.data);
         });
+    };
+    var updateScoresets = function () {
+        var postData = Array();
+        postData['r_id'] = $scope.selectedRubric;
+        postData['c_id'] = $scope.selectedClass;
+        postData['semester'] = $scope.selectedSemester + " " + $scope.selectedYear;
+        postData['verb'] = 'get';
+        postData['session_key'] = session.key;
+
+        var url = 'api/scoreset.php';
+
+        php.post(postData, url, function (response) {
+            $scope.scoresets = new Object();
+            $scope.scoresets = angular.fromJson(response.data);
+        }, function (response) {
+
+        })
+    };
+    $scope.loadScoreset = function (id) {
+        var postData = Array();
+        postData['id'] = id;
+        postData['verb'] = 'getscoreset';
+        postData['session_key'] = session.key;
+
+        var url = 'api/scoreset.php';
+
+        php.post(postData, url, function (response) {
+            $scope.scoreset = new Object();
+            var scores = angular.fromJson(response.data);
+            $scope.scoreset.R_ID = scores[0]['R_ID'];
+            $scope.scoreset.C_ID = scores[0]['C_ID'];
+            $scope.scoreset.P_ID = scores[0]['P_ID'];
+            $scope.scoreset.C_SEMESTER = scores[0]['C_SEMESTER'];
+            $scope.scoreset.SCORE_ID = id;
+            $scope.scoreset.EVAL_ID = scores[0]['EVAL_ID'];
+            $scope.scoreset.STUDENT_NUM = scores[0]['STUDENT_NUM'];
+            $scope.scoreset.C_SECTION = scores[0]['C_SECTION'];
+            $scope.scoreset.criteria = Object();
+            $scope.scoreset.verb = 'edit';
+            for (var c in scores) {
+                $scope.scoreset.criteria[scores[c]['CRIT_ID']] = Object();
+                $scope.scoreset.criteria[scores[c]['CRIT_ID']]['score'] = parseInt(scores[c]['SCORESET_SCORE']);
+
+            }
+            
+        }, function (response) {
+
+        })
+    };
+    $scope.resetScoreset = function () {
+        $scope.scoreset = new Object();
+        $scope.scoreset.verb = 'add';
     };
 
     updateClasses();
