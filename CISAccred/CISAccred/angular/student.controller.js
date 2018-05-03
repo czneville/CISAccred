@@ -3,7 +3,7 @@
 CISAccredApp.controller('studentController', function ($scope, session, php) {
     session.showLoginForm();
 
-    $scope.selectedYear = 'undefined';
+    $scope.selectedYear = new Date().getFullYear().toString();
     $scope.selectedSemester = 'undefined';
     $scope.selectedClass = 'undefined';
     $scope.selectedRubric = 'undefined';
