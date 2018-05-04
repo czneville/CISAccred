@@ -1,5 +1,5 @@
 ﻿Choose Year:<br />
-<select class="form-control" ng-model="selectedYear" >
+<select class="form-control" ng-model="selectedYear" ng-change="fetchCriteria();">
     <option value="2014">2014</option>
     <option value="2015">2015</option>
     <option value="2016">2016</option>
@@ -35,7 +35,7 @@
 </select>
 <br />
 <span ng-show="selectedYear != 'undefined'">Choose Semester:</span><br />
-<select class="form-control" ng-model="selectedSemester" ng-show="selectedYear != 'undefined'">
+<select class="form-control" ng-model="selectedSemester" ng-show="selectedYear != 'undefined'" ng-change="fetchCriteria();">
     <option value="Fall">Fall</option>
     <option value="Spring">Spring</option>
     <option value="Summer">Summer</option>
@@ -44,7 +44,7 @@
 <div ng-show="selectedSemester != 'undefined'">
     <br />
     Choose Class:
-    <select class="form-control" ng-model="selectedClass">
+    <select class="form-control" ng-model="selectedClass" >
         <option ng-repeat="c in classes" value="{{c['C_ID']}}">{{c['C_COURSE_NUM']}}: {{c['C_COURSE_TITLE']}}</option>
     </select>
     <br />
@@ -56,7 +56,7 @@
     </div>
 </div>
 <br /><br />
-<div ng-show="selectedRubric != 'undefined'">
+<div ng-show="(selectedRubric != 'undefined') && (selectedRubric != null)">
     <table class="fancy-table">
         <tr>
             <td>Student No.</td>

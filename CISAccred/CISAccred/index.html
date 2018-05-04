@@ -24,6 +24,7 @@
     <script src="angular/user.controller.js"></script>
     <script src="angular/inactive.controller.js"></script>
     <script src="angular/password.controller.js"></script>
+    <script src="angular/reports.controller.js"></script>
 
     <script src="scripts/notify.min.js"></script>
     <script src="scripts/validate.min.js"></script>
@@ -46,28 +47,31 @@
         <div>
             <ul>
                 <li ng-click='$location.path("/");' ng-hide="session.isLoggedIn();">
-                    <span class="glyphicon glyphicon-lock"></span>&nbsp;Login
+                    <span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;Login
                 </li>
                 <li ng-click='$location.path("/home");' ng-hide="!session.isLoggedIn();">
-                    <span class="glyphicon glyphicon-home"></span>&nbsp;Home
+                    <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home
                 </li>
                 <li ng-click='$location.path("/student");' ng-hide="!session.isLoggedIn();">
-                    <span class="glyphicon glyphicon-pencil"></span>&nbsp;Student Scores
+                    <span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Student Scores
                 </li>
                 <li ng-click='$location.path("/abet");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
-                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Add / Edit ABET Data
+                    <span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;ABET Data
                 </li>
                 <li ng-click='$location.path("/user");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
-                    <span class="glyphicon glyphicon-user"></span>&nbsp;User Management
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;User Management
                 </li>
                 <li ng-click='$location.path("/inactive");' ng-hide="(!session.isLoggedIn()) || (!session.isAdmin)">
-                    <span class="glyphicon glyphicon-eye-close"></span>&nbsp;Inactive Records
+                    <span class="glyphicon glyphicon-eye-close"></span>&nbsp;&nbsp;Inactive Records
+                </li>
+                <li ng-click='$location.path("/reports");' ng-hide="!session.isLoggedIn();">
+                    <span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Reports
                 </li>
                 <li ng-click='$location.path("/password");' ng-hide="(!session.isLoggedIn()) || (session.isAdmin)">
-                    <span class="glyphicon glyphicon-edit"></span>&nbsp;Change Password
+                    <span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Change Password
                 </li>
                 <li class="logout-btn" ng-click='session.logout();' ng-hide="!session.isLoggedIn();">
-                    <span class="glyphicon glyphicon-remove"></span>&nbsp;Logout
+                    <span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Logout
                 </li>
             </ul>
         </div>

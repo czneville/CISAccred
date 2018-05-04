@@ -1,0 +1,125 @@
+﻿<ul class="nav nav-tabs">
+    <li id="year" class="active" role="presentation" ng-click="activeTab.set('year')"><a>By Year</a></li>
+    <li id="rubric" role="presentation" ng-click="activeTab.set('rubric')"><a>By Rubric</a></li>
+</ul>
+
+<div id="abet-tab" ng-show="activeTab.active === 'year'">
+    <div style="padding: 10px;">
+        <select class="form-control" ng-model="selectedYear" ng-change="fetchMasterList();">
+            <option value="2014">2014-2015 School Year</option>
+            <option value="2015">2015-2016 School Year</option>
+            <option value="2016">2016-2017 School Year</option>
+            <option value="2017">2017-2018 School Year</option>
+            <option value="2018">2018-2019 School Year</option>
+            <option value="2019">2019-2020 School Year</option>
+            <option value="2020">2020-2021 School Year</option>
+            <option value="2021">2021-2022 School Year</option>
+            <option value="2022">2022-2023 School Year</option>
+            <option value="2023">2023-2024 School Year</option>
+            <option value="2024">2024-2025 School Year</option>
+            <option value="2025">2025-2026 School Year</option>
+            <option value="2026">2026-2027 School Year</option>
+            <option value="2027">2027-2028 School Year</option>
+            <option value="2028">2028-2029 School Year</option>
+            <option value="2029">2029-2030 School Year</option>
+            <option value="2030">2030-2031 School Year</option>
+            <option value="2031">2031-2032 School Year</option>
+            <option value="2032">2032-2033 School Year</option>
+            <option value="2033">2033-2034 School Year</option>
+            <option value="2034">2034-2035 School Year</option>
+            <option value="2035">2035-2036 School Year</option>
+            <option value="2036">2036-2037 School Year</option>
+            <option value="2037">2037-2038 School Year</option>
+            <option value="2038">2038-2039 School Year</option>
+            <option value="2039">2039-2040 School Year</option>
+            <option value="2040">2040-2041 School Year</option>
+            <option value="2041">2041-2042 School Year</option>
+            <option value="2042">2042-2043 School Year</option>
+            <option value="2043">2043-2044 School Year</option>
+            <option value="2044">2044-2045 School Year</option>
+            <option value="2045">2045-2046 School Year</option>
+            <option value="2046">2046-2047 School Year</option>
+            <option value="2047">2047-2048 School Year</option>
+            <option value="2048">2048-2049 School Year</option>
+            <option value="2049">2049-2050 School Year</option>
+            <option value="2050">2050-2051 School Year</option>
+        </select><br />
+        <i>Outcomes with no entered scores in the given time period are not reported on.</i><br />
+        <i>Individual criteria may have scores outside the range 0-5.</i>
+        <br /><br />
+        <table class="report-table">
+            <tr>
+                <td>&nbsp;Outcome</td>
+                <td>&nbsp;Description</td>
+                <td>&nbsp;Result</td>
+            </tr>
+            <tr ng-repeat="o in outcomes">
+                <td>&nbsp;{{o['OUT_NAME']}}</td>
+                <td>&nbsp;{{o['OUT_DESC']}}</td>
+                <td class="{{performance[o['OUT_ID']]['mode']}}">&nbsp;{{performance[o['OUT_ID']]['score']}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="abet-tab" ng-show="activeTab.active === 'rubric'">
+    <div style="padding: 10px;">
+        <select class="form-control" ng-model="selectedYear" ng-change="fetchMasterList();">
+            <option value="2014">2014-2015 School Year</option>
+            <option value="2015">2015-2016 School Year</option>
+            <option value="2016">2016-2017 School Year</option>
+            <option value="2017">2017-2018 School Year</option>
+            <option value="2018">2018-2019 School Year</option>
+            <option value="2019">2019-2020 School Year</option>
+            <option value="2020">2020-2021 School Year</option>
+            <option value="2021">2021-2022 School Year</option>
+            <option value="2022">2022-2023 School Year</option>
+            <option value="2023">2023-2024 School Year</option>
+            <option value="2024">2024-2025 School Year</option>
+            <option value="2025">2025-2026 School Year</option>
+            <option value="2026">2026-2027 School Year</option>
+            <option value="2027">2027-2028 School Year</option>
+            <option value="2028">2028-2029 School Year</option>
+            <option value="2029">2029-2030 School Year</option>
+            <option value="2030">2030-2031 School Year</option>
+            <option value="2031">2031-2032 School Year</option>
+            <option value="2032">2032-2033 School Year</option>
+            <option value="2033">2033-2034 School Year</option>
+            <option value="2034">2034-2035 School Year</option>
+            <option value="2035">2035-2036 School Year</option>
+            <option value="2036">2036-2037 School Year</option>
+            <option value="2037">2037-2038 School Year</option>
+            <option value="2038">2038-2039 School Year</option>
+            <option value="2039">2039-2040 School Year</option>
+            <option value="2040">2040-2041 School Year</option>
+            <option value="2041">2041-2042 School Year</option>
+            <option value="2042">2042-2043 School Year</option>
+            <option value="2043">2043-2044 School Year</option>
+            <option value="2044">2044-2045 School Year</option>
+            <option value="2045">2045-2046 School Year</option>
+            <option value="2046">2046-2047 School Year</option>
+            <option value="2047">2047-2048 School Year</option>
+            <option value="2048">2048-2049 School Year</option>
+            <option value="2049">2049-2050 School Year</option>
+            <option value="2050">2050-2051 School Year</option>
+        </select><br />
+        <select class="form-control" ng-model="selectedRubric"  ng-change="fetchMasterList();">
+            <option ng-repeat="r in rubrics" value="{{r['R_ID']}}">{{r["R_NAME"]}}</option>
+        </select><br />
+        <i>Rubrics with no entered scores in the given time period are not reported on.</i><br />
+        <i>Individual criteria may have scores outside the range 0-5.</i>
+        <br /><br />
+        <table class="report-table" ng-hide="selectedRubric == null">
+            <tr>
+                <td>&nbsp;Line</td>
+                <td>&nbsp;Criteria</td>
+                <td>&nbsp;Result</td>
+            </tr>
+            <tr ng-repeat="c in criteria">
+                <td>&nbsp;{{c['CRIT_LINE']}}</td>
+                <td>&nbsp;{{c['CRIT_TASK_DESC']}}</td>
+                <td class="{{rubricPerformance[c['CRIT_ID']]['mode']}}">&nbsp;{{rubricPerformance[c['CRIT_ID']]['score']}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

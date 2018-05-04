@@ -140,6 +140,7 @@ CISAccredApp.controller('studentController', function ($scope, session, php) {
     };
     var updateScoresets = function () {
         var postData = Array();
+        if (($scope.selectedRubric == null) || ($scope.selectedRubric == 'undefined')) { return; }
         postData['r_id'] = $scope.selectedRubric;
         postData['c_id'] = $scope.selectedClass;
         postData['semester'] = $scope.selectedSemester + " " + $scope.selectedYear;

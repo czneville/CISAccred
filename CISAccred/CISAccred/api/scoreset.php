@@ -14,7 +14,7 @@
         $scoreset = json_decode($_POST["scoreset"],true);
         $maxId = executeQuery("SELECT MAX(SCORE_ID) FROM CIS_SCORESET", true)[0]["MAX(SCORE_ID)"];
         if(!isset($maxId)){$maxId=1000;}else{$maxId++;}
-        $studentId = executeQuery("SELECT MAX(STUDENT_NUM) FROM CIS_SCORESET", true)[0]["MAX(STUDENT_NUM)"];
+        $studentId = executeQuery("SELECT MAX(STUDENT_NUM) FROM CIS_SCORESET WHERE R_ID =".$scoreset['R_ID']." AND C_ID=".$scoreset['C_ID']." AND C_SEMESTER='".$scoreset['C_SEMESTER']."'", true)[0]["MAX(STUDENT_NUM)"];
         if(!isset($studentId)){$studentId=1;}else{$studentId++;}
         $query = executeQuery("INSERT INTO CIS_SCORESET VALUES(".$maxId.",".$scoreset['R_ID'].",".$scoreset['P_ID'].",".$scoreset['EVAL_ID'].",'".$scoreset['C_SEMESTER']."',".$scoreset['C_ID'].",'".$scoreset['C_SECTION']."',".$studentId.")",false);
         if($query){

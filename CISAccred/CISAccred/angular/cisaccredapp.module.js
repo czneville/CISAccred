@@ -32,5 +32,9 @@ CISAccredApp.config(function ($routeProvider) {
             templateUrl: 'pages/password.html',
             controller: 'passwordController'
         })
+        .when('/reports', {
+            templateUrl: 'pages/reports.html',
+            controller: 'reportsController'
+        })
 
 });
