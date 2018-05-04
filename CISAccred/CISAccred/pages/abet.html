@@ -58,7 +58,7 @@
         <div class="pill-box" ng-show="activePill.active === 'criteria'">
             <h3 style="margin-top: 0px; padding: 10px;">Criteria:</h3><br />
             <div style="margin-top: 0px; padding: 10px;">
-                <b>Rubric to Edit:</b>
+                <b>Select Rubric:</b>
                 <select class="form-control" ng-model="selectedRubric">
                     <option ng-repeat="r in rubrics" value='{{r["R_ID"]}}'>{{r["R_NAME"]}}</option>
                 </select>
@@ -212,7 +212,7 @@
                     <form name="outcomeform" novalidate>
                         Outcome Name: <input name="outcomename" type="text" class="form-control" placeholder="Name..." ng-model="outcome.name" required/><br />
                         Outcome Description: <input name="outcomedesc" type="text" class="form-control" placeholder="Description..." ng-model="outcome.desc" required/><br />
-                        <input id="outcomeAdd" type="submit" class="btn btn-default" value="Add Outcome" ng-disabled="outcomeform.outcomename.$invalid || outcomeform.outcomedesc.$invalid" ng-click="chooseOutcomeFunction();" /><br /><br />
+                        <input id="outcomeAdd" type="submit" class="btn btn-default" value="Save" ng-disabled="outcomeform.outcomename.$invalid || outcomeform.outcomedesc.$invalid" ng-click="chooseOutcomeFunction();" /><br /><br />
                     </form>
                 </div>
             </div>
@@ -279,7 +279,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteClassLabel">{{firstupper(class.verb)}} confirmation:</h3>
+                <h3 class="modal-title" id="deleteClassLabel">Delete class confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteClass-form">
@@ -304,7 +304,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteRubricLabel">{{firstUpper(rubric.verb)}} confirmation:</h3>
+                <h3 class="modal-title" id="deleteRubricLabel">Delete rubric confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteRubric-form">
@@ -329,7 +329,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteOutcomeLabel">{{firstUpper(outcome.verb)}} confirmation:</h3>
+                <h3 class="modal-title" id="deleteOutcomeLabel">Delete outcome confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteOutcome-form">
@@ -354,7 +354,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="deleteCriteriaLabel">{{firstUpper(criteria.verb)}} confirmation:</h3>
+                <h3 class="modal-title" id="deleteCriteriaLabel">Delete criteria confirmation:</h3>
             </div>
             <div class="modal-body">
                 <div id="deleteCriteria-form">
