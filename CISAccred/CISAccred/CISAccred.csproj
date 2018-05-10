@@ -76,6 +76,7 @@
     <Content Include="angular\inactive.controller.js" />
     <Content Include="angular\login.controller.js" />
     <Content Include="angular\main.controller.js" />
+    <Content Include="angular\objective.controller.js" />
     <Content Include="angular\password.controller.js" />
     <Content Include="angular\php.service.js" />
     <Content Include="angular\reports.controller.js" />
@@ -103,6 +104,7 @@
     <Content Include="api\inactiveUser.php" />
     <Content Include="api\inactiveEvaluator.php" />
     <Content Include="api\masterList.php" />
+    <Content Include="api\objective.php" />
     <Content Include="api\rubricClass.php" />
     <Content Include="api\changePassword.php" />
     <Content Include="api\scoreset.php" />
@@ -139,6 +141,7 @@
     <Content Include="pages\abet.html" />
     <Content Include="pages\inactive.html" />
     <Content Include="pages\login.html" />
+    <Content Include="pages\objective.html" />
     <Content Include="pages\password.html" />
     <Content Include="pages\reports.html" />
     <Content Include="pages\student.html" />

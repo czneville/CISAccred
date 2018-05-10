@@ -1,0 +1,28 @@
+﻿<ul class="nav nav-tabs">
+    <li id="objective" class="active" role="presentation" ng-click="activeTab.set('objective')"><a>Objectives</a></li>
+    <li id="objectiveclass" role="presentation" ng-click="activeTab.set('objectiveclass')"><a>Objective-Class Mapping</a></li>
+</ul>
+
+<div id="objective-tab" ng-show="activeTab.active === 'objective'">
+    <h3 style="margin-top: 0px; padding: 10px">Objectives:</h3>
+    <table class="objective-table">
+        <tr>
+            <td><b>Objective ID</b></td>
+            <td><b>Objective Name</b></td>
+            <td><b>Course Name</b></td>
+            <td>Rubric Name</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="o in objectives">
+            <td>&nbsp;{{u["P_FNAME"]}}</td>
+            <td>&nbsp;{{u["P_LNAME"]}}</td>
+            <td>&nbsp;{{u["P_USERNAME"]}}</td>
+            <td><a data-toggle="modal" data-target="#addObjective" ng-click="">&nbsp;<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit...</a></td>
+            <td><a data-toggle="modal" data-target="#deleteObjective" ng-click="">&nbsp;<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete...</a></td>
+        </tr>
+        <tr>
+            <td colspan="6"><a data-toggle="modal" data-target="#addObjective" ng-click="">&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;Add new objective...</a></td>
+        </tr>
+    </table>
+</div>

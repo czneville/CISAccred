@@ -37,4 +37,9 @@ CISAccredApp.config(function ($routeProvider) {
             controller: 'reportsController'
         })
 
+        .when('/objective', {
+            templateUrl: 'pages/objective.html',
+            controller: 'objectiveController'
+        })
+
 });
