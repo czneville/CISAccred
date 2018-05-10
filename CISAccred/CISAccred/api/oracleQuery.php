@@ -1,6 +1,6 @@
 ﻿<?php
   function executeQuery($query, $isFetch=true){
-      $DB_HANDLE = oci_connect("cisaccred","cisaccred","//orion.calu.edu/orcl");
+      $DB_HANDLE = oci_connect("CISAccred","CISAccred","//orion.calu.edu/orcl");
       if(!$DB_HANDLE){
         return false;
       }
